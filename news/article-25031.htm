@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://quantumultxnode.github.io/news/article-25031.htm" />
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>超级详细的webpack Plugin讲解_javascript技巧_</title>
+        <meta name="description" content="目录  一、pulgin 的作用 二、pulgin 配置方式 三、pulgin 的本质 四、常见的 pulgin  4-1 html-webpack-plugin 4-2 clean-webpack-" />
+        <link rel="icon" href="/assets/website/img/quantumultxnode/favicon.ico" type="image/x-icon"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/bootstrap.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/style.css">
+    <!-- Colors CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/colors.css">
+    <!-- ALL VERSION CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/versions.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/custom.css">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HT2LRJJHKV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HT2LRJJHKV');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body class="seo_version" data-page="detail">
+    <!-- LOADER -->
+    <div id="preloader">
+        <div id="cupcake" class="box">
+            <span class="letter">L</span>
+            <div class="cupcakeCircle box">
+                <div class="cupcakeInner box">
+                    <div class="cupcakeCore box"></div>
+                </div>
+            </div>
+            <span class="letter box">A</span>
+            <span class="letter box">D</span>
+            <span class="letter box">I</span>
+            <span class="letter box">N</span>
+            <span class="letter box">G</span>
+        </div>
+    </div>
+    <!-- END LOADER -->
+    <header class="header header_style_01">
+        <nav class="megamenu navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                                        <a class="navbar-brand" href="/">
+                        Quantumult X Node
+                    </a>
+                                    </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right menu-top">
+                                                <li><a href="/">首页</a></li>
+                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                <li><a href="/news/">新闻资讯</a></li>
+                                                <li><a href="#">关于</a></li>
+                        <li><a href="#">联系</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="all-page-title" style="background-image:url(images/pattern-4.png);">
+        <div class="container text-center">
+            <h1>超级详细的webpack Plugin讲解_javascript技巧_</h1>
+        </div>
+        <!--Page -->
+        <div class="page-info">
+            <div class="container">
+                <div class="inner-container">
+                    <ul class="bread-crumb">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li><span>正文</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--End Page-->
+    </div><!-- end section -->
+    <svg id="clouds" class="hidden-xs" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 85 100" preserveAspectRatio="none">
+        <path d="M-5 100 Q 0 20 5 100 Z
+            M0 100 Q 5 0 10 100
+            M5 100 Q 10 30 15 100
+            M10 100 Q 15 10 20 100
+            M15 100 Q 20 30 25 100
+            M20 100 Q 25 -10 30 100
+            M25 100 Q 30 10 35 100
+            M30 100 Q 35 30 40 100
+            M35 100 Q 40 10 45 100
+            M40 100 Q 45 50 50 100
+            M45 100 Q 50 20 55 100
+            M50 100 Q 55 40 60 100
+            M55 100 Q 60 60 65 100
+            M60 100 Q 65 50 70 100
+            M65 100 Q 70 20 75 100
+            M70 100 Q 75 45 80 100
+            M75 100 Q 80 30 85 100
+            M80 100 Q 85 20 90 100
+            M85 100 Q 90 50 95 100
+            M90 100 Q 95 25 100 100
+            M95 100 Q 100 15 105 100 Z">
+        </path>
+    </svg>
+    <div id="about" class="section wb nopadtop">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                      				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">一、pulgin 的作用</a></li> <li><a href="#_label1" rel="nofollow">二、pulgin 配置方式</a></li> <li><a href="#_label2" rel="nofollow">三、pulgin 的本质</a></li> <li><a href="#_label3" rel="nofollow">四、常见的 pulgin</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_3_0" rel="nofollow">4-1 html-webpack-plugin</a></li> <li><a href="#_lab2_3_1" rel="nofollow">4-2 clean-webpack-plugin</a></li> <li><a href="#_lab2_3_2" rel="nofollow">4-3 mini-css-extract-plugin</a></li> <li><a href="#_lab2_3_3" rel="nofollow">4-4 DefinePlugin</a></li> <li><a href="#_lab2_3_4" rel="nofollow">4-5 copy-webpack-plugin</a></li> </ul> <li><a href="#_label4" rel="nofollow">总结</a></li> <ul class="second_class_ul"></ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>一、pulgin 的作用</h2> <ul> <li> <p>pulgin 就是“插件”的意思，主要目的就是解决 loader 无法实现的事情，loader 只是用作于将特定的模块进行转换，而 pulgin 可以用于执行更加广泛的任务，比如打包优化、资源管理、环境变量注入等</p> </li> <li> <p>pulgin 是贯穿 webpack 整个编译周期的，运行在 webpack 的不同阶段（钩子 / 生命周期）</p> </li> </ul> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220412/1b2d4e6b5f01ea184ec7a9a20007d0a1.jpg"></p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>二、pulgin 配置方式</h2> <p>通常情况下，pulgin 的配置都是通过 webpack.config.js 配置文件导出对象中 plugins 属性传入 new 实例对象</p> <div class="ay1code"> <pre class="brush:js;">const HtmlWebpackPlugin = require('html-webpack-plugin'); // 通过 npm 安装  const webpack = require('webpack'); // 访问内置的插件  module.exports = {    ...    // 配置 plugins    plugins: [      new webpack.ProgressPlugin(),      new HtmlWebpackPlugin({ template: './src/index.html' }),    ],  };</pre> </div> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>三、pulgin 的本质</h2> <p>pulgin 本质上是一个具有 apply 方法 javascript 对象，而他的这个 apply 方法会被 webpack compiler 阶段调用，并且在整个编译生命周期都可以访问 compiler 对象</p> <div class="ay1code"> <pre class="brush:js;">const pluginName = 'ConsoleLogOnBuildWebpackPlugin';    class ConsoleLogOnBuildWebpackPlugin {    apply(compiler) {      compiler.hooks.run.tap(pluginName, (compilation) =&gt; {        console.log('webpack 构建过程开始！');      });    }  }    module.exports = ConsoleLogOnBuildWebpackPlugin;</pre> </div> <p>关于整个编译生命周期钩子：</p> <ul> <li>entry-option ：初始化 option</li> <li>run</li> <li>compile： 真正开始的编译，在创建 compilation 对象之前</li> <li>compilation ：生成好了 compilation 对象</li> <li>make 从 entry 开始递归分析依赖，准备对每个模块进行 build</li> <li>after-compile： 编译 build 过程结束</li> <li>emit ：在将内存中 assets 内容写到磁盘文件夹之前</li> <li>after-emit ：在将内存中 assets 内容写到磁盘文件夹之后</li> <li>done： 完成所有的编译过程</li> <li>failed： 编译失败的时候</li> </ul> <p class="maodian"><a name="_label3" rel="nofollow"></a></p> <h2>四、常见的 pulgin</h2> <p class="maodian"><a name="_lab2_3_0" rel="nofollow"></a></p> <h3>4-1 html-webpack-plugin</h3> <p>作用：</p> <ul> <li>利用 HtmlWebpackPlugin 插件自动生成 html 文件，并且对打包后的 js 文件做了一个引入</li> <li>HtmlWebpackPlugin 原理是通过自带默认的 ejs 模版去生成的，当然也可以自定义模版，在 html 模板中，可以通过 <code>&lt;%=htmlWebpackPlugin.options.XXX%&gt;</code> 的方式获取配置的值</li> </ul> <div class="ay1code"> <pre class="brush:js;">// webpack.config.js  const HtmlWebpackPlugin = require("html-webpack-plugin");  module.exports = {   ...    plugins: [       new HtmlWebpackPlugin({              title: "webpack案例",              template: "./public/index.html", // 指定生成的 html 模版          }),    ]  };</pre> </div> <p class="maodian"><a name="_lab2_3_1" rel="nofollow"></a></p> <h3>4-2 clean-webpack-plugin</h3> <p>作用：每次打包时候，CleanWebpackPlugin 插件就会自动把上一次打的包删除</p> <div class="ay1code"> <pre class="brush:js;">const {CleanWebpackPlugin} = require('clean-webpack-plugin');  module.exports = {   ...    plugins: [      new CleanWebpackPlugin()    ]  }</pre> </div> <p class="maodian"><a name="_lab2_3_2" rel="nofollow"></a></p> <h3>4-3 mini-css-extract-plugin</h3> <p>作用：提取 CSS 到一个单独的文件中</p> <div class="ay1code"> <pre class="brush:js;">const MiniCssExtractPlugin = require('mini-css-extract-plugin');  module.exports = {   ...,    module: {     rules: [      {       test: /.s[ac]ss$/,       use: [        {         loader: MiniCssExtractPlugin.loader       },            'css-loader',            'sass-loader'          ]     }     ]   },    plugins: [      ...,      new MiniCssExtractPlugin({       filename: '[name].css'      }),      ...    ]  }</pre> </div> <p class="maodian"><a name="_lab2_3_3" rel="nofollow"></a></p> <h3>4-4 DefinePlugin</h3> <p>作用：DefinePlugin 允许在编译时创建配置的全局常量，是一个 webpack 内置的插件（不需要单独安装）</p> <div class="ay1code"> <pre class="brush:js;">const { DefinePlugun } = require('webpack')    module.exports = {   ...      plugins:[          new DefinePlugin({              BASE_URL: '"./"' // 等价于 const BASE_URL = "./" 他的赋值方式有点奇葩          }),      ]  }</pre> </div> <p>这时候编译template模块的时候，就能通过下述形式获取全局对象</p> <div class="ay1code"> <pre class="brush:xhtml;">  &lt;!-- BASE_URL 是一个全局的常量，是通过 DefinePlugin 这个插件去定义的 --&gt;    &lt;link  href="&lt;%= BASE_URL %&gt;favicon.ico"  &gt;</pre> </div> <p class="maodian"><a name="_lab2_3_4" rel="nofollow"></a></p> <h3>4-5 copy-webpack-plugin</h3> <p>作用：CopyWebpackPlugin 是一个复制文件的插件，复制文件或者目录到指定区域，比如 vue 的打包过程中，如果我们将一些文件放到 public 的目录下，那么这个目录会被复制到 dist 文件夹中</p> <div class="ay1code"> <pre class="brush:js;">new CopyWebpackPlugin({              // 通过 CopyWebpackPlugin 插件将 public 中的文件复制到打包后的文件夹下              // patterns 是匹配的意思              patterns: [                  {                      from: "public", // 设置从哪一个源中开始复制                      to: "build" // 可以省略，默认是复制到打包输出的路径，会根据 output                       globOptions: {                          ignore: ['**/DS_Store', '**/index.html', '**/abc.txt'] // ** 表示的是 from 的文件夹                      }                      // globOptions：设置一些额外的选项，其中可以编写需要忽略的文件,                      //比如.DS_Store：mac目录下回自动生成的一个文件；.index.html：也不需要复制，因为我们已经通过HtmlWebpackPlugin完成了index.html的生成                  }              ]          })</pre> </div> <p class="maodian"><a name="_label4" rel="nofollow"></a></p> <h2>总结</h2> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-24578.htm">猫的三针疫苗要多少钱（猫咪三针疫苗大概多少钱）</a></p>
+                                        <p>下一个：<a href="/news/article-25032.htm">国内宠物粮上市公司有哪些 国内宠物粮上市公司有哪些公司</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-19060.htm" title="Java四舍五入保留两位小数">Java四舍五入保留两位小数</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-22-free-subscribe-node.htm" title="11月22日 - 最高速度20.1M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">11月22日 - 最高速度20.1M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-15-free-node-subscribe-links.htm" title="11月15日 - 最高速度20.5M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">11月15日 - 最高速度20.5M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-29-quantumult-x-node-windows.htm" title="7月29日 - 最高速度19.1M/S，2024年QuantumultX每天更新免费节点订阅链接">7月29日 - 最高速度19.1M/S，2024年QuantumultX每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-21801.htm" title="经营动物疫苗需要什么资质（动物疫苗经营许可）">经营动物疫苗需要什么资质（动物疫苗经营许可）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-19-free-high-speed-nodes.htm" title="8月19日 - 最高速度18.9M/S，2024年QuantumultX每天更新免费节点订阅链接">8月19日 - 最高速度18.9M/S，2024年QuantumultX每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-3-quantumult-x-github.htm" title="9月3日 - 最高速度22.4M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接">9月3日 - 最高速度22.4M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-25032.htm" title="国内宠物粮上市公司有哪些 国内宠物粮上市公司有哪些公司">国内宠物粮上市公司有哪些 国内宠物粮上市公司有哪些公司</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-11-today-quantumult-x-node.htm" title="10月11日 - 最高速度22.2M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接">10月11日 - 最高速度22.2M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-31-free-quantumult-x-node.htm" title="10月31日 - 最高速度21.8M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">10月31日 - 最高速度21.8M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div><!-- end container -->
+    </div><!-- end section -->
+    	    <div class="copyrights">
+        <div class="container">
+            <div class="footer-distributed">
+                <div class="footer-left">
+                    <p class="footer-company-name">
+                        <a href="/">QuantumultX Node(圈X)官方节点站</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div><!-- end container -->
+    </div><!-- end copyrights -->
+    <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+    <!-- ALL JS FILES -->
+    <script src="/assets/website/js/frontend/quantumultxnode/all.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="/assets/website/js/frontend/quantumultxnode/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
