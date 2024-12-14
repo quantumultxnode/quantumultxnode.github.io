@@ -2,15 +2,14 @@
 <html lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://quantumultxnode.github.io" />
+        <link rel="canonical" href="https://quantumultxnode.github.io/news/article-25485.htm" />
     <!-- Basic -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>2024-11归档 - QuantumultX Node(圈X)官方节点站</title>
-        <meta name="keywords" content="2024-11归档" />
-        <meta name="description" content="2024-11归档" />
+    <title>Java判断字符串是否为null的equals的正确用法</title>
+        <meta name="description" content="在业务需求中，我们经常会判断是否为null而去做一些业务处理，用到了equals方法，但是你想想之前真的没有用错吗？ 话不多说，这个经常用，直接上代码 package com.example;  im" />
         <link rel="icon" href="/assets/website/img/quantumultxnode/favicon.ico" type="image/x-icon"/>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/assets/website/css/quantumultxnode/bootstrap.min.css">
@@ -41,7 +40,7 @@
      crossorigin="anonymous"></script>
 </head>
 
-<body class="seo_version" data-page="category">
+<body class="seo_version" data-page="detail">
     <!-- LOADER -->
     <div id="preloader">
         <div id="cupcake" class="box">
@@ -88,7 +87,7 @@
     </header>
     <div class="all-page-title" style="background-image:url(images/pattern-4.png);">
         <div class="container text-center">
-            <h1>2024-11 归档</h1>
+            <h1>Java判断字符串是否为null的equals的正确用法</h1>
         </div>
         <!--Page -->
         <div class="page-info">
@@ -96,7 +95,8 @@
                 <div class="inner-container">
                     <ul class="bread-crumb">
                         <li><a href="/">首页</a></li>
-                        <li><span>2024-11 归档</span></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li><span>正文</span></li>
                     </ul>
                 </div>
             </div>
@@ -131,27 +131,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                    <div class="xcblog-blog-list">
-                                                <div class="row item xcblog-blog-item" data-date="2024-11-01">
-                            <div class="col-md-3">
-                                <div class="post-media wow fadeIn">
-                                    <a href="/free-nodes/2024-11-1-free-quantumult-x-node.htm" class="xcblog-blog-url">
-                                        <img src="/uploads/20240726-1/02344e61c9d60da2389a96e5ea0e0b08.webp" alt="11月1日 - 最高速度21.6M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐" class="img-responsive img-rounded">
-                                    </a>
-                                </div><!-- end media -->
-                            </div><!-- end col -->
-                            <div class="col-md-9 m40">
-                                <div class="message-box">
-                                    <a href="/free-nodes/2024-11-1-free-quantumult-x-node.htm" class="xcblog-blog-url">
-                                        <h3 class="xcblog-blog-title">11月1日 - 最高速度21.6M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</h3>
-                                    </a>
-                                    <p class="lead">这一次的节点更新覆盖了新加坡、欧洲、美国、香港、日本、韩国、加拿大等地区,最高速度可达21.6 M/S。只需复制下方的Clash/v2ray订阅链接,在客户端添加后即可正常使用。</p>
-                                </div><!-- end messagebox -->
-                            </div><!-- end col -->
-                        </div><!-- end row -->
-                        
-                        <ul class="pagination"><li><a href="/date/2024-11/page-3.htm">&laquo;</a></li> <li><a href="/date/2024-11/">1</a></li><li><a href="/date/2024-11/page-2.htm">2</a></li><li><a href="/date/2024-11/page-3.htm">3</a></li><li class="active"><span>4</span></li> <li class="disabled"><span>&raquo;</span></li></ul>                    </div>
-                </div>
+                                      				  				  				<div id="content_views" class="htmledit_views"> <p>在业务需求中，我们经常会判断是否为null而去做一些业务处理，用到了<span style="color:#f33b45;">equals</span>方法，但是你想想之前真的没有用错吗？</p> <p>话不多说，这个经常用，直接上代码</p> <pre><code>package com.example;  import lombok.extern.slf4j.Slf4j;  /**  * @author XuYangWei  * @Date 2021/1/23 9:06  */  @Slf4j public class TestEquals {     public static void main(String[] args) {         log.info("我是叫null的小伙子，让我来~");         toTestEquals(null);     }      public static void toTestEquals(String s) {         String y = "y";         if (y.equals(s)) {             log.info("打印不出我，实际业务中equals相等后再我这里做业务代码哦，嘿嘿~~~");         }         try {             if (s.equals(y)) {                 log.info("看异常日志，不用看我，哼~");             }         } catch (Exception e) {             log.info("住手，这里不可以！");             log.info("我是空指针异常");         }     } }</code></pre> <p>这里传递一个不为空的字符串s和为空的变量y是null作比较，前面的判断我们先把参数s放前面，后面的判断我们把y放前面。</p> <p>我们看看测试结果：</p> <p><img fetchpriority="high" decoding="async" alt="" height="781" src="http://img.555519.xyz/uploads3/20220610/ab721dfb56d1df9d7eb710d55bc0eeba.jpg"></p> <p><strong>同时是两者作比较，前面的方法不会出现空指针异常，跳出if；后面的方法在作比较的时候会直接在if判断的时候出现空指针异常，被捕捉到异常日志输出。</strong></p> <p><strong>根据打印我们就能看出结果，这种问题新手很容易忽略，以为确定不为null的定值和可能为null的变量比较不管谁在前谁在后都一个样。</strong></p> <h3>总结：</h3> <p><span style="color:#f33b45;"><strong>不为null的定值和可能为null的变量比较，一定要定值在前面，变量在后面。</strong></span></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-25032.htm">国内宠物粮上市公司有哪些 国内宠物粮上市公司有哪些公司</a></p>
+                                        <p>下一个：<a href="/news/article-25486.htm">狗粮加盟店 狗粮加盟厂</a></p>
+                                    </div>
+                                </div>
                 <div class="col-md-3">
                     <div class="panel panel-default">
     <div class="panel-heading">
@@ -159,16 +144,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-11-11-quantumult-x-node-github.htm" title="11月11日 - 最高速度22.6M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">11月11日 - 最高速度22.6M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-18-quantumult-x-node-share.htm" title="9月18日 - 最高速度20.2M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接">9月18日 - 最高速度20.2M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-7-node-share-links.htm" title="11月7日 - 最高速度20.5M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">11月7日 - 最高速度20.5M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-21-free-subscribe-node.htm" title="8月21日 - 最高速度22.3M/S，2024年QuantumultX每天更新免费节点订阅链接">8月21日 - 最高速度22.3M/S，2024年QuantumultX每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-30-free-node-subscribe-links.htm" title="8月30日 - 最高速度18M/S，2024年QuantumultX每天更新免费节点订阅链接">8月30日 - 最高速度18M/S，2024年QuantumultX每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-19-today-quantumult-x-node.htm" title="9月19日 - 最高速度20.6M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接">9月19日 - 最高速度20.6M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-4-quantumult-x-node-github.htm" title="12月4日 - 最高速度19.7M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">12月4日 - 最高速度19.7M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-14-node-share-links.htm" title="11月14日 - 最高速度22.8M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">11月14日 - 最高速度22.8M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-4-free-high-speed-nodes.htm" title="11月4日 - 最高速度22.5M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">11月4日 - 最高速度22.5M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
-                        <li class="py-2"><a href="/news/article-19964.htm" title="宠物医院猫咪打疫苗价格（宠物医院猫咪打疫苗价格）">宠物医院猫咪打疫苗价格（宠物医院猫咪打疫苗价格）</a></li>
+                        <li class="py-2"><a href="/news/article-20885.htm" title="动物接种疫苗多少钱一次啊 动物接种疫苗多少钱一次啊">动物接种疫苗多少钱一次啊 动物接种疫苗多少钱一次啊</a></li>
+                        <li class="py-2"><a href="/news/article-23637.htm" title="宠物粮食排名榜最新（宠物粮食排名榜最新）">宠物粮食排名榜最新（宠物粮食排名榜最新）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-7-quantumult-x-github.htm" title="10月7日 - 最高速度20.6M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接">10月7日 - 最高速度20.6M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-23179.htm" title="Tomcat 部署 Web项目以及更改项目名">Tomcat 部署 Web项目以及更改项目名</a></li>
+                        <li class="py-2"><a href="/news/article-24577.htm" title="济南哪里有领养宠物的地方（济南有领养宠物的地方吗）">济南哪里有领养宠物的地方（济南有领养宠物的地方吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-24-today-quantumult-x-node.htm" title="10月24日 - 最高速度21.4M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">10月24日 - 最高速度21.4M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-17-free-subscribe-node.htm" title="10月17日 - 最高速度21.8M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">10月17日 - 最高速度21.8M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-26-free-high-speed-nodes.htm" title="「7月26日」最高速度18.7M/S，2024年QuantumultX每天更新免费节点订阅链接">「7月26日」最高速度18.7M/S，2024年QuantumultX每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-9-latest-quantumult-x-node.htm" title="11月9日 - 最高速度19.1M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">11月9日 - 最高速度19.1M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-11-today-quantumult-x-node.htm" title="10月11日 - 最高速度22.2M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接">10月11日 - 最高速度22.2M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
