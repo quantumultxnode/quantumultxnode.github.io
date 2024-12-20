@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>uni-app 怎么修改自定义组件样式 uniapp 覆盖 组件样式</title>
         <meta name="description" content="前段时间说到，由于Android和ios开发的小伙伴比较忙。我被拉来开发一个App。 今天记录一下， uni-app小程序怎么修改自定义组件样式  测试了h5和App端是可以的。小程序端没有测试 如果" />
-        <link rel="icon" href="__ADDON__/img/quantumultxnode/favicon.ico" type="image/x-icon"/>
+        <link rel="icon" href="/assets/website/img/quantumultxnode/favicon.ico" type="image/x-icon"/>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/assets/website/css/quantumultxnode/bootstrap.min.css">
     <!-- Site CSS -->
@@ -131,7 +131,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                                      				  				  				<div id="content_views" class="htmledit_views"> <p>前段时间说到，由于Android和ios开发的小伙伴比较忙。我被拉来开发一个App。</p> <p>今天记录一下，</p> <h2>uni-app小程序怎么修改自定义组件样式</h2> <p><img fetchpriority="high" decoding="async" alt="" height="629" src="http://img.555519.xyz/uploads/20230218/145992a4e04166977a3147a0aaedbc6e.jpg"></p> <p>测试了h5和App端是可以的。小程序端没有测试</p> <p>如果使用过vue开发项目，可以知道，当&nbsp;<code>&lt;style&gt;</code>&nbsp;标签有&nbsp;<code>scoped</code>&nbsp;属性时，它的 CSS 只作用于当前组件中的元素。</p> <p>使用之后是这样的。</p> <pre><code class="language-css">&lt;style&gt; /* 全局样式 */ &lt;/style&gt;  &lt;style scoped&gt; /* 本地样式 */ &lt;/style&gt;</code></pre> <p>但是使用&nbsp;<code>scoped</code>&nbsp;后，父组件的样式将不会渗透到子组件中。</p> <p>如果你希望&nbsp;<code>scoped</code>&nbsp;样式中的一个选择器能够作用得“更深”，例如影响子组件，你可以使用&nbsp;<code>&gt;&gt;&gt;</code>&nbsp;操作符：</p> <pre><code>&lt;style scoped&gt; .a &gt;&gt;&gt; .b { /* ... */ } &lt;/style&gt;  //会被解析成这个样子 .a[data-v-f3f3eg9] .b { /* ... */ }</code></pre> <p>有些像 Sass 之类的预处理器无法正确解析&nbsp;<code>&gt;&gt;&gt;</code>。这种情况下你可以使用&nbsp;<code>/deep/</code>&nbsp;或&nbsp;<code>::v-deep</code>&nbsp;操作符取而代之——两者都是&nbsp;<code>&gt;&gt;&gt;</code>&nbsp;的别名，同样可以正常工作。</p> <p>&nbsp;</p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://vue-loader.vuejs.org/zh/guide/scoped-css.html#%E6%B7%B1%E5%BA%A6%E4%BD%9C%E7%94%A8%E9%80%89%E6%8B%A9%E5%99%A8"  rel="nofollow">vue文档</a></p> </p></div> 			                <div class="clearfix"></div>
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>前段时间说到，由于Android和ios开发的小伙伴比较忙。我被拉来开发一个App。</p> <p>今天记录一下，</p> <h2>uni-app小程序怎么修改自定义组件样式</h2> <p><img fetchpriority="high" decoding="async" alt="" height="629" src="http://img.555519.xyz/uploads/20230218/145992a4e04166977a3147a0aaedbc6e.jpg"></p> <p>测试了h5和App端是可以的。小程序端没有测试</p> <p>如果使用过vue开发项目，可以知道，当&nbsp;<code>&lt;style&gt;</code>&nbsp;标签有&nbsp;<code>scoped</code>&nbsp;属性时，它的 CSS 只作用于当前组件中的元素。</p> <p>使用之后是这样的。</p> <pre><code class="language-css">&lt;style&gt; /* 全局样式 */ &lt;/style&gt;  &lt;style scoped&gt; /* 本地样式 */ &lt;/style&gt;</code></pre> <p>但是使用&nbsp;<code>scoped</code>&nbsp;后，父组件的样式将不会渗透到子组件中。</p> <p>如果你希望&nbsp;<code>scoped</code>&nbsp;样式中的一个选择器能够作用得“更深”，例如影响子组件，你可以使用&nbsp;<code>&gt;&gt;&gt;</code>&nbsp;操作符：</p> <pre><code>&lt;style scoped&gt; .a &gt;&gt;&gt; .b { /* ... */ } &lt;/style&gt;  //会被解析成这个样子 .a[data-v-f3f3eg9] .b { /* ... */ }</code></pre> <p>有些像 Sass 之类的预处理器无法正确解析&nbsp;<code>&gt;&gt;&gt;</code>。这种情况下你可以使用&nbsp;<code>/deep/</code>&nbsp;或&nbsp;<code>::v-deep</code>&nbsp;操作符取而代之——两者都是&nbsp;<code>&gt;&gt;&gt;</code>&nbsp;的别名，同样可以正常工作。</p> <p>&nbsp;</p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://vue-loader.vuejs.org/zh/guide/scoped-css.html#%E6%B7%B1%E5%BA%A6%E4%BD%9C%E7%94%A8%E9%80%89%E6%8B%A9%E5%99%A8"  rel="nofollow">vue文档</a></p> </p></div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-19965.htm">动物防疫站免费打狂犬疫苗（动物防疫站打狂犬疫苗多少钱）</a></p>
                                         <p>下一个：<a href="/news/article-20434.htm">宠物粮食批发市场在哪 宠物粮食批发市场在哪里</a></p>
@@ -144,16 +145,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-10-6-free-quantumult-x-node.htm" title="10月6日 - 最高速度21.9M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接">10月6日 - 最高速度21.9M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-17-node-share.htm" title="9月17日 - 最高速度19.1M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接">9月17日 - 最高速度19.1M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-16-free-subscribe-node.htm" title="9月16日 - 最高速度20.4M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接">9月16日 - 最高速度20.4M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-2-free-high-speed-nodes.htm" title="10月2日 - 最高速度18.3M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接">10月2日 - 最高速度18.3M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-1-free-quantumult-x-node.htm" title="11月1日 - 最高速度21.6M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">11月1日 - 最高速度21.6M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-18-quantumult-x-github.htm" title="11月18日 - 最高速度19.6M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">11月18日 - 最高速度19.6M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-26-latest-quantumult-x-node.htm" title="10月26日 - 最高速度21.4M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">10月26日 - 最高速度21.4M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-25031.htm" title="超级详细的webpack Plugin讲解_javascript技巧_">超级详细的webpack Plugin讲解_javascript技巧_</a></li>
                         <li class="py-2"><a href="/free-nodes/2024-10-10-today-quantumult-x-node.htm" title="10月10日 - 最高速度21.9M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接">10月10日 - 最高速度21.9M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-19506.htm" title="兽药排名前十强 兽药排名前十强正规厂家">兽药排名前十强 兽药排名前十强正规厂家</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-13-free-quantumult-x-node.htm" title="11月13日 - 最高速度22.1M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">11月13日 - 最高速度22.1M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-8-quantumult-x-node-github.htm" title="8月8日 - 最高速度21.8M/S，2024年QuantumultX每天更新免费节点订阅链接">8月8日 - 最高速度21.8M/S，2024年QuantumultX每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-20433.htm" title="uni-app 怎么修改自定义组件样式 uniapp 覆盖 组件样式">uni-app 怎么修改自定义组件样式 uniapp 覆盖 组件样式</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-4-quantumult-x-github.htm" title="10月4日 - 最高速度23M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接">10月4日 - 最高速度23M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-15-quantumult-x-github.htm" title="9月15日 - 最高速度22.5M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接">9月15日 - 最高速度22.5M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-10-free-quantumult-x-node.htm" title="9月10日 - 最高速度22.6M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接">9月10日 - 最高速度22.6M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-27817.htm" title="vue项目 v-for循环数据，鼠标移入移出改变颜色">vue项目 v-for循环数据，鼠标移入移出改变颜色</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-15-today-quantumult-x-node.htm" title="8月15日 - 最高速度20M/S，2024年QuantumultX每天更新免费节点订阅链接">8月15日 - 最高速度20M/S，2024年QuantumultX每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-22-node-share.htm" title="9月22日 - 最高速度22.9M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接">9月22日 - 最高速度22.9M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -165,7 +166,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">15</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -195,6 +196,15 @@
             <div class="footer-distributed">
                 <div class="footer-left">
                     <p class="footer-company-name">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
                         <a href="/">QuantumultX Node(圈X)官方节点站</a> 版权所有 Powered by WordPress
                     </p>
                 </div>
