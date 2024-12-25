@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://quantumultxnode.github.io/news/article-30626.htm" />
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>简单易懂的进程与线程详解</title>
+        <meta name="description" content="本博客分以下几个部分来阐述进程与线程 1、进程的概念很抽象?那么什么是进程呢？ 2、开启一个进程，操作系统会做哪些工作？ 3、既然进程也可以使多个程序能并发执行，为什么还需要线程？ 4、进程与线程有哪" />
+        <link rel="icon" href="/assets/website/img/quantumultxnode/favicon.ico" type="image/x-icon"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/bootstrap.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/style.css">
+    <!-- Colors CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/colors.css">
+    <!-- ALL VERSION CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/versions.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/custom.css">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HT2LRJJHKV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HT2LRJJHKV');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body class="seo_version" data-page="detail">
+    <!-- LOADER -->
+    <div id="preloader">
+        <div id="cupcake" class="box">
+            <span class="letter">L</span>
+            <div class="cupcakeCircle box">
+                <div class="cupcakeInner box">
+                    <div class="cupcakeCore box"></div>
+                </div>
+            </div>
+            <span class="letter box">A</span>
+            <span class="letter box">D</span>
+            <span class="letter box">I</span>
+            <span class="letter box">N</span>
+            <span class="letter box">G</span>
+        </div>
+    </div>
+    <!-- END LOADER -->
+    <header class="header header_style_01">
+        <nav class="megamenu navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                                        <a class="navbar-brand" href="/">
+                        Quantumult X Node
+                    </a>
+                                    </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right menu-top">
+                                                <li><a href="/">首页</a></li>
+                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                <li><a href="/news/">新闻资讯</a></li>
+                                                <li><a href="#">关于</a></li>
+                        <li><a href="#">联系</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="all-page-title" style="background-image:url(images/pattern-4.png);">
+        <div class="container text-center">
+            <h1>简单易懂的进程与线程详解</h1>
+        </div>
+        <!--Page -->
+        <div class="page-info">
+            <div class="container">
+                <div class="inner-container">
+                    <ul class="bread-crumb">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li><span>正文</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--End Page-->
+    </div><!-- end section -->
+    <svg id="clouds" class="hidden-xs" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 85 100" preserveAspectRatio="none">
+        <path d="M-5 100 Q 0 20 5 100 Z
+            M0 100 Q 5 0 10 100
+            M5 100 Q 10 30 15 100
+            M10 100 Q 15 10 20 100
+            M15 100 Q 20 30 25 100
+            M20 100 Q 25 -10 30 100
+            M25 100 Q 30 10 35 100
+            M30 100 Q 35 30 40 100
+            M35 100 Q 40 10 45 100
+            M40 100 Q 45 50 50 100
+            M45 100 Q 50 20 55 100
+            M50 100 Q 55 40 60 100
+            M55 100 Q 60 60 65 100
+            M60 100 Q 65 50 70 100
+            M65 100 Q 70 20 75 100
+            M70 100 Q 75 45 80 100
+            M75 100 Q 80 30 85 100
+            M80 100 Q 85 20 90 100
+            M85 100 Q 90 50 95 100
+            M90 100 Q 95 25 100 100
+            M95 100 Q 100 15 105 100 Z">
+        </path>
+    </svg>
+    <div id="about" class="section wb nopadtop">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				</h1> <p>本博客分以下几个部分来阐述进程与线程</p> <p>1、进程的概念很抽象?那么什么是进程呢？</p> <p>2、开启一个进程，操作系统会做哪些工作？</p> <p>3、既然进程也可以使多个程序能并发执行，为什么还需要线程？</p> <p>4、进程与线程有哪些联系呢？</p> <h2 id="什么是进程">什么是进程？</h2> <ul> <li>进程是计算机程序从启动到结束的过程。</li> <li>那么什么是计算机程序呢？ 我们常见的QQ、微信、英雄联盟这些软件都是一个计算机程序，（可以说我们从打开QQ到关闭QQ就是一段进程）。<br /> 不难理解，这些计算机程序是由代码，以及图片、音频、jar包等必要的资源文件组成的。</li> </ul> <h2 id="开启一个进程操作系统会做哪些工作呢">开启一个进程，操作系统会做哪些工作呢？</h2> <ul> <li>①进程的ID号。当操作系统收到我们要打开QQ进程的时候，操作系统会给QQ进程一个ID号，我们可以通过任务管理器窗口看到该进程ID</li> <li>②申请内存空间。每个进程拥有独立的地址空间。</li> </ul> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/59b83d2b3f1b69c91188c944367dc439.jpg" alt="简单易懂的进程与线程详解"></p> <h2 id="既然进程也可以使多个程序能并发执行为什么还需要线程">既然进程也可以使多个程序能并发执行，为什么还需要线程？</h2> <h4 id="从用户使用的角度来看">从用户使用的角度来看</h4> <ul> <li>进程的并发解决了哪些问题呢？ <ul> <li>多应用同时进行，在QQ音乐听歌的同时 还可以刷QQ空间。</li> <li>应用分身，这允许我们同时登录好多人的QQ号。</li> </ul> </li> <li>如果我们QQ进程中只有一个线程，会发生什么呢？ <ul> <li>单线程的进程是完全顺序结构，只能在同一时间做一件事情。比如我们在使用QQ进行文件传输的时候，就无法和好友发消息 闲聊了。</li> </ul> </li> </ul> <h4 id="从上下文状态切换的角度来看">从上下文状态切换的角度来看</h4> <ul> <li>进程的单位比较大，创建/销毁、进行上下文切换比较浪费资源</li> <li>线程的单位比较小，创建/销毁、上下文切换不太浪费资源</li> <li>所以，需要频繁创建销毁时，要考虑线程 。在需要大量计算、切换频繁时 使用线程可以提高程序的响应速度 。</li> </ul> <h4 id="线程的引入优点很多又有哪些问题呢">线程的引入优点很多，又有哪些问题呢？</h4> <ul> <li>开发更加麻烦。</li> <li>线程可以共享一个进程的资源，所以共享的数据要保证安全。</li> <li>线程的执行顺序，也需要保证，比如我们要给QQ好友发送一张图片，这篇文章传输过程中可能被分成了很多份小的<br /> 数据包来发送，这个时候QQ好友接收数据包的顺序不能乱。</li> </ul> <h2 id="进程与线程有哪些联系呢">进程与线程有哪些联系呢？</h2> <ul> <li>一个进程之中可以包含多个线程</li> <li>线程可以共享一个进程的资源</li> </ul> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-30155.htm">上海宠物医院有多少家（上海宠物医院前十名）</a></p>
+                                        <p>下一个：<a href="/news/article-30627.htm">人跟狗打的狂犬疫苗一样吗 人跟狗打的狂犬疫苗一样吗多少钱</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-10-node-share.htm" title="12月10日 - 最高速度22.6M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">12月10日 - 最高速度22.6M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-23-free-subscribe-node.htm" title="8月23日 - 最高速度21.6M/S，2024年QuantumultX每天更新免费节点订阅链接">8月23日 - 最高速度21.6M/S，2024年QuantumultX每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-8-today-quantumult-x-node.htm" title="12月8日 - 最高速度20.9M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">12月8日 - 最高速度20.9M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-26424.htm" title="动物医院工作怎么样啊（动物医院职位）">动物医院工作怎么样啊（动物医院职位）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-29-quantumult-x-node-windows.htm" title="8月29日 - 最高速度18.7M/S，2024年QuantumultX每天更新免费节点订阅链接">8月29日 - 最高速度18.7M/S，2024年QuantumultX每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-20-today-quantumult-x-node.htm" title="8月20日 - 最高速度18.4M/S，2024年QuantumultX每天更新免费节点订阅链接">8月20日 - 最高速度18.4M/S，2024年QuantumultX每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-25031.htm" title="超级详细的webpack Plugin讲解_javascript技巧_">超级详细的webpack Plugin讲解_javascript技巧_</a></li>
+                        <li class="py-2"><a href="/news/article-24577.htm" title="济南哪里有领养宠物的地方（济南有领养宠物的地方吗）">济南哪里有领养宠物的地方（济南有领养宠物的地方吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-29-node-share.htm" title="10月29日 - 最高速度22.9M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">10月29日 - 最高速度22.9M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-2-quantumult-x-node-windows.htm" title="12月2日 - 最高速度19.8M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">12月2日 - 最高速度19.8M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">75</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div><!-- end container -->
+    </div><!-- end section -->
+    	    <div class="copyrights">
+        <div class="container">
+            <div class="footer-distributed">
+                <div class="footer-left">
+                    <p class="footer-company-name">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <a href="/">QuantumultX Node(圈X)官方节点站</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div><!-- end container -->
+    </div><!-- end copyrights -->
+    <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+    <!-- ALL JS FILES -->
+    <script src="/assets/website/js/frontend/quantumultxnode/all.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="/assets/website/js/frontend/quantumultxnode/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
