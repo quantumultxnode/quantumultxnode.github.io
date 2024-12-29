@@ -2,14 +2,14 @@
 <html lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://quantumultxnode.github.io/news/article-32054.htm" />
+        <link rel="canonical" href="https://quantumultxnode.github.io/news/article-32535.htm" />
     <!-- Basic -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Vue3实现跑马灯效果_vue.js</title>
-        <meta name="description" content="本文实例为大家分享了Vue3实现跑马灯效果的具体代码，供大家参考，具体内容如下 先看效果：  html部分代码  &lt;div class="app"&gt;              &lt;p " />
+    <title>win11系统UAC被禁用怎么解决</title>
+        <meta name="description" content="&nbsp; &nbsp;windows系统中的UAC一般是指用户账户控制，这个功能可以在我们更改设置的时候保护系统安全，不过最近有位win11系统用户在使用电脑的过程当中，遇到了UAC被禁用的情况，" />
         <link rel="icon" href="/assets/website/img/quantumultxnode/favicon.ico" type="image/x-icon"/>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/assets/website/css/quantumultxnode/bootstrap.min.css">
@@ -87,7 +87,7 @@
     </header>
     <div class="all-page-title" style="background-image:url(images/pattern-4.png);">
         <div class="container text-center">
-            <h1>Vue3实现跑马灯效果_vue.js</h1>
+            <h1>win11系统UAC被禁用怎么解决</h1>
         </div>
         <!--Page -->
         <div class="page-info">
@@ -132,10 +132,10 @@
             <div class="row">
                 <div class="col-md-9">
                                     <input type="hidden" id="share-website-info" data-name="" data-url="">
-                  				  				  				<p>本文实例为大家分享了Vue3实现跑马灯效果的具体代码，供大家参考，具体内容如下</p> <p>先看效果：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220427/581f314412d74ea85ba899b38ffcd8ef.jpg"></p> <p><strong>html部分代码</strong></p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;div class="app"&gt;              &lt;p :class="{tabcolor:color}"&gt;{{str}}&lt;/p&gt;              &lt;button @click="play"&gt;开始&lt;/button&gt;              &lt;button @click="stop"&gt;停止&lt;/button&gt;  &lt;/div&gt;</pre> </div> <blockquote> <p>注意： :class="{tabcolor:color}" 是给&lt;p&gt;&lt;/p&gt;标签内的文字加上一个颜色，当我们点击开始按钮的时候。 </p> </blockquote> <p><strong>CSS部分代码</strong></p> <div class="ay1code"> <pre class="brush:css;">.tabcolor {                  color: cornflowerblue;              }</pre> </div> <p>CSS部分的代码很简单，就是给了一个添加颜色的类。</p> <p><strong>Vue部分代码</strong></p> <div class="ay1code"> <pre class="brush:js;">Vue.createApp({              data() {                  return {                      str: "你好啊，我是稳重聪头~",                      id: null,                      color: false,                  }              },              methods: {                  play() {                      clearInterval(this.id);                      this.color = !this.color;                      this.id = setInterval(() =&gt; {                          this.str = this.str.slice(1) + this.str.slice(0, 1)                      }, 800)                  },                  stop() {                      clearInterval(this.id);                      this.color = false;                  }              }          }).mount(".app")</pre> </div> <p><strong>分析：</strong></p> <p>1、data上定义一个字符串，这个字符串就是要在&lt;p&gt;&lt;/p&gt;标签里进行滚动的。<br />2、给开始和关闭按钮，绑定事件：v-on; @cliick就是v-on的简写。<br />3、在按钮的事件函数中，写相关的业务逻辑代码：拿到str字符串，然后 调用字符串 slice 来进行字符串的截取操作，把第一个字符截取出来，放到最后一个位置即可。<br />4、为了实现最终结果，自动截取的功能，需要把步骤三的代码放到一个定时器中去。</p> <p>最后在送上完整代码 </p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;!DOCTYPE html&gt;  &lt;html lang="en"&gt;         &lt;head&gt;          &lt;meta charset="UTF-8"&gt;          &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;          &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;          &lt;title&gt;Document&lt;/title&gt;          &lt;script src="./js/vue.js"&gt;&lt;/script&gt;          &lt;style type="text/css"&gt;              .tabcolor {                  color: cornflowerblue;              }          &lt;/style&gt;      &lt;/head&gt;         &lt;body&gt;          &lt;div class="app"&gt;              &lt;p :class="{tabcolor:color}"&gt;{{str}}&lt;/p&gt;              &lt;button @click="play"&gt;开始&lt;/button&gt;              &lt;button @click="stop"&gt;停止&lt;/button&gt;          &lt;/div&gt;      &lt;/body&gt;      &lt;script&gt;          Vue.createApp({              data() {                  return {                      str: "你好啊，我是稳重聪头~",                      id: null,                      color: false,                  }              },              methods: {                  play() {                      clearInterval(this.id);                      this.color = !this.color;                      this.id = setInterval(() =&gt; {                          this.str = this.str.slice(1) + this.str.slice(0, 1)                      }, 800)                  },                  stop() {                      clearInterval(this.id);                      this.color = false;                  }              }          }).mount(".app")      &lt;/script&gt;  &lt;/html&gt;</pre> </div> 			                <div class="clearfix"></div>
+                  				  				  				<p> 	&nbsp; &nbsp;windows系统中的UAC一般是指用户账户控制，这个功能可以在我们更改设置的时候保护系统安全，不过最近有位win11系统用户在使用电脑的过程当中，遇到了UAC被禁用的情况，用户尝试了很多方法都没有解决，为此非常苦恼，那么win11系统UAC被禁用怎么解决呢?下面为大家分享win11系统UAC被禁用的解决教程。</p> <p><strong>&nbsp; &nbsp;Win11系统UAC被禁用的解决方法：</strong></p> <p> 	&nbsp; &nbsp;1、首先我们按下快捷键“Win+R”打开运行。如图所示：</p> <p style="text-align: center;"><img decoding="async" alt="UAC被禁用" src="http://img.555519.xyz/uploads/20231126/7ec30dae5db917e6c97eb703e8d9636c.jpg"></p> <p> 	&nbsp; &nbsp; &nbsp; &nbsp;2、打开后，在其中输入“msconfig”并回车打开系统配置。如图所示：</p> <p style="text-align: center;"><img decoding="async" alt="UAC被禁用" src="http://img.555519.xyz/uploads/20231126/57ac79b3750dc848a31426ad49ea4486.jpg"></p> <p> 	&nbsp; &nbsp; &nbsp; &nbsp;3、接着在“工具”选项卡里就能找到“uac设置”了。如图所示：</p> <p style="text-align: center;"><img decoding="async" alt="UAC被禁用" src="http://img.555519.xyz/uploads/20231126/25ac6191185d98efa263c6848bda5c01.jpg"></p> <p> 	&nbsp; &nbsp; &nbsp; &nbsp;4、选中它并点击右下角的“启动”。如图所示：</p> <p style="text-align: center;"><img decoding="async" alt="UAC被禁用" src="http://img.555519.xyz/uploads/20231126/19e0817494e24bb65eddc49b50618832.jpg"></p> <p> 	&nbsp; &nbsp; &nbsp; &nbsp;5、启动后将左边的滑块向上滑动并保存就可以打开uac了。如图所示：</p> <p style="text-align: center;"><img decoding="async" alt="UAC被禁用" src="http://img.555519.xyz/uploads/20231126/91c70af02f39643acbe3b519c8896812.jpg"></p> <p> 	&nbsp; &nbsp; &nbsp; &nbsp;关于win11系统UAC被禁用的解决教程就为用户们详细分享到这里了，如果用户们遇到了同样的问题，可以参考以上方法步骤进行操作哦，希望本篇教程对大家有所帮助，更多精彩教程请本站。</p> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
-                                        <p>上一个：<a href="/news/article-31585.htm">动物医院实践心得体会怎么写啊（动物医院实践心得2000）</a></p>
-                                        <p>下一个：<a href="/news/article-32055.htm">猫粮十大品牌有哪些牌子（猫粮10大品牌排行榜）</a></p>
+                                        <p>上一个：<a href="/news/article-32055.htm">猫粮十大品牌有哪些牌子（猫粮10大品牌排行榜）</a></p>
+                                        <p>下一个：<a href="/news/article-32536.htm">家庭式宠物寄养平台（家庭式宠物寄养平台朝阳区）</a></p>
                                     </div>
                                 </div>
                 <div class="col-md-3">
@@ -145,16 +145,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-20885.htm" title="动物接种疫苗多少钱一次啊 动物接种疫苗多少钱一次啊">动物接种疫苗多少钱一次啊 动物接种疫苗多少钱一次啊</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-14-free-node-subscribe.htm" title="10月14日 - 最高速度20.7M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">10月14日 - 最高速度20.7M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
-                        <li class="py-2"><a href="/news/article-32055.htm" title="猫粮十大品牌有哪些牌子（猫粮10大品牌排行榜）">猫粮十大品牌有哪些牌子（猫粮10大品牌排行榜）</a></li>
-                        <li class="py-2"><a href="/news/article-28738.htm" title="猫到底打不打疫苗（猫该不该打疫苗）">猫到底打不打疫苗（猫该不该打疫苗）</a></li>
-                        <li class="py-2"><a href="/news/article-28285.htm" title="一般宠物店猫粮多少钱 一般宠物店猫粮多少钱一斤">一般宠物店猫粮多少钱 一般宠物店猫粮多少钱一斤</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-15-today-quantumult-x-node.htm" title="8月15日 - 最高速度20M/S，2024年QuantumultX每天更新免费节点订阅链接">8月15日 - 最高速度20M/S，2024年QuantumultX每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-24-quantumult-x-node-windows.htm" title="12月24日 - 最高速度19.1M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">12月24日 - 最高速度19.1M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-21-free-node-subscribe-links.htm" title="10月21日 - 最高速度22.3M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">10月21日 - 最高速度22.3M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-4-quantumult-x-node-github.htm" title="12月4日 - 最高速度19.7M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">12月4日 - 最高速度19.7M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-26-latest-quantumult-x-node.htm" title="10月26日 - 最高速度21.4M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">10月26日 - 最高速度21.4M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-17-latest-quantumult-x-node.htm" title="8月17日 - 最高速度19M/S，2024年QuantumultX每天更新免费节点订阅链接">8月17日 - 最高速度19M/S，2024年QuantumultX每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-28-quantumult-x-node.htm" title="9月28日 - 最高速度21.8M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接">9月28日 - 最高速度21.8M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-31584.htm" title="SpringBoot 2.3.x 分层构建 Docker 镜像实践详解">SpringBoot 2.3.x 分层构建 Docker 镜像实践详解</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-28-free-node-subscribe-links.htm" title="8月28日 - 最高速度20.3M/S，2024年QuantumultX每天更新免费节点订阅链接">8月28日 - 最高速度20.3M/S，2024年QuantumultX每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-11-free-node-subscribe-links.htm" title="12月11日 - 最高速度22.7M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">12月11日 - 最高速度22.7M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-30155.htm" title="上海宠物医院有多少家（上海宠物医院前十名）">上海宠物医院有多少家（上海宠物医院前十名）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-4-free-high-speed-nodes.htm" title="11月4日 - 最高速度22.5M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">11月4日 - 最高速度22.5M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-1-quantumult-x-node.htm" title="9月1日 - 最高速度21.2M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接">9月1日 - 最高速度21.2M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-14-node-share-links.htm" title="12月14日 - 最高速度19.3M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">12月14日 - 最高速度19.3M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-5-node-share-links.htm" title="8月5日 - 最高速度21.6M/S，2024年QuantumultX每天更新免费节点订阅链接">8月5日 - 最高速度21.6M/S，2024年QuantumultX每天更新免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
