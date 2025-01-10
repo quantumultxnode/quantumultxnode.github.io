@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://quantumultxnode.github.io/news/article-37317.htm" />
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>QT下载安装和Visual Studio环境配置</title>
+        <meta name="description" content="文章目录      下载QT VS2019配置QT环境   1. 下载QT插件 2. 配置QT插件路径 3. 构建Qt Widget Application          参考自Visual St" />
+        <link rel="icon" href="/assets/website/img/quantumultxnode/favicon.ico" type="image/x-icon"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/bootstrap.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/style.css">
+    <!-- Colors CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/colors.css">
+    <!-- ALL VERSION CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/versions.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/custom.css">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HT2LRJJHKV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HT2LRJJHKV');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body class="seo_version" data-page="detail">
+    <!-- LOADER -->
+    <div id="preloader">
+        <div id="cupcake" class="box">
+            <span class="letter">L</span>
+            <div class="cupcakeCircle box">
+                <div class="cupcakeInner box">
+                    <div class="cupcakeCore box"></div>
+                </div>
+            </div>
+            <span class="letter box">A</span>
+            <span class="letter box">D</span>
+            <span class="letter box">I</span>
+            <span class="letter box">N</span>
+            <span class="letter box">G</span>
+        </div>
+    </div>
+    <!-- END LOADER -->
+    <header class="header header_style_01">
+        <nav class="megamenu navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                                        <a class="navbar-brand" href="/">
+                        Quantumult X Node
+                    </a>
+                                    </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right menu-top">
+                                                <li><a href="/">首页</a></li>
+                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                <li><a href="/news/">新闻资讯</a></li>
+                                                <li><a href="#">关于</a></li>
+                        <li><a href="#">联系</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="all-page-title" style="background-image:url(images/pattern-4.png);">
+        <div class="container text-center">
+            <h1>QT下载安装和Visual Studio环境配置</h1>
+        </div>
+        <!--Page -->
+        <div class="page-info">
+            <div class="container">
+                <div class="inner-container">
+                    <ul class="bread-crumb">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li><span>正文</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--End Page-->
+    </div><!-- end section -->
+    <svg id="clouds" class="hidden-xs" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 85 100" preserveAspectRatio="none">
+        <path d="M-5 100 Q 0 20 5 100 Z
+            M0 100 Q 5 0 10 100
+            M5 100 Q 10 30 15 100
+            M10 100 Q 15 10 20 100
+            M15 100 Q 20 30 25 100
+            M20 100 Q 25 -10 30 100
+            M25 100 Q 30 10 35 100
+            M30 100 Q 35 30 40 100
+            M35 100 Q 40 10 45 100
+            M40 100 Q 45 50 50 100
+            M45 100 Q 50 20 55 100
+            M50 100 Q 55 40 60 100
+            M55 100 Q 60 60 65 100
+            M60 100 Q 65 50 70 100
+            M65 100 Q 70 20 75 100
+            M70 100 Q 75 45 80 100
+            M75 100 Q 80 30 85 100
+            M80 100 Q 85 20 90 100
+            M85 100 Q 90 50 95 100
+            M90 100 Q 95 25 100 100
+            M95 100 Q 100 15 105 100 Z">
+        </path>
+    </svg>
+    <div id="about" class="section wb nopadtop">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <div class="toc"> <h3>文章目录</h3> <ul> <li> <ul> <li> <ul> <li><a href="#QT_5" rel="nofollow">下载QT</a></li> <li><a href="#VS2019QT_13" rel="nofollow">VS2019配置QT环境</a></li> <li> <ul> <li><a href="#1_QT_15" rel="nofollow">1. 下载QT插件</a></li> <li><a href="#2_QT_28" rel="nofollow">2. 配置QT插件路径</a></li> <li><a href="#3_Qt_Widget_Application_44" rel="nofollow">3. 构建Qt Widget Application</a></li> </ul> </li> </ul> </li> </ul> </li> </ul> </div> <p> 参考自<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/c_general/article/details/120385519"  rel="nofollow">Visual Studio 2019（VS 2019）配置Qt开发环境（最新！）_WebUeGIS的博客-CSDN博客_vs2019配置qt</a></p> <p>环境：VS2017 Professional, win10 Pro</p> <h3><a id="QT_5" rel="nofollow"></a>下载QT</h3> <p>从官网上下载5.9.9版本的可执行文件<code>qt-opensource-windows-x86-5.9.9.exe</code>，<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://download.qt.io/archive/qt/5.9/5.9.9/"  rel="nofollow">Index of /archive/qt/5.9/5.9.9</a></p> <p>双击可执行文件，按照指示创建并验证账号，</p> <p>注意应该选择<code>MSVC 2017 64-bit</code>，否则Visual Studio2017无法正确配置QT环境。</p> <h3><a id="VS2019QT_13" rel="nofollow"></a>VS2019配置QT环境</h3> <h4><a id="1_QT_15" rel="nofollow"></a>1. 下载QT插件</h4> <p>在 工具→拓展和更新 中，选择联机模式，并搜素QT，选择第一个下载</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221113/afdbb23ff587d81bfe54151b53016ad3.jpg" alt="QT下载安装和Visual Studio环境配置"><img decoding="async" src="http://img.555519.xyz/uploads/20221113/ca96ef0555310c8e229de69e096bf696.jpg" alt="QT下载安装和Visual Studio环境配置"></p> <p>然后关闭VS，会提示安装更新，然后重新打开后就可以在菜单栏看到 Qt VS tools了。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221113/d111de5e1d0765e3d5ba825c12db7588.jpg" alt="QT下载安装和Visual Studio环境配置"></p> <h4><a id="2_QT_28" rel="nofollow"></a>2. 配置QT插件路径</h4> <p>打开 Qt VS tools→ QT versions<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221113/c9fa2a72004a35ca426a7640824fd42b.jpg" alt="QT下载安装和Visual Studio环境配置"></p> <p>点击&lt;add new QT version&gt;，选择安装路径</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221113/01581e6bbbcdc225dc4bf090e0a5dc51.jpg" alt="QT下载安装和Visual Studio环境配置"></p> <p>选择qmake.exe</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221113/83ee4a3a974e17c75782d096e6cce252.jpg" alt="QT下载安装和Visual Studio环境配置"></p> <h4><a id="3_Qt_Widget_Application_44" rel="nofollow"></a>3. 构建Qt Widget Application</h4> <p>新建QT Widget Application，勾选debug版本，一直点击next。</p> <p>右键项目，打开属性页，检查 《常规》→平台工具集 是否和VS版本对应。</p> <p>bug1: 大量的头文件找不到</p> <p>在《C/C++》→ 附加包含目录 中，将QT的include文件夹地址传入，同时在VC++包含目录中添加include文件夹地址。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221113/16d3e17e1ec581aef8ce08878cedeb5f.jpg" alt="QT下载安装和Visual Studio环境配置"><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221113/236d2f457c445f06797b7d64265e0be3.jpg" alt="QT下载安装和Visual Studio环境配置"></p> <p>bug2：全局范围内没有****</p> <p>解决方法：右键项目，重定向，然后重新运行即可。</p> <p>11)]</p> <p>bug2：全局范围内没有****</p> <p>解决方法：右键项目，重定向，然后重新运行即可。</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-36832.htm">动物疫苗和人体疫苗的区别在哪里呢图片视频（动物疫苗的概念）</a></p>
+                                        <p>下一个：<a href="/news/article-37318.htm">狗粮加工厂利润成本分析表模板怎么写（狗粮生产成本）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-31-free-high-speed-nodes.htm" title="12月31日 - 最高速度20.7M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">12月31日 - 最高速度20.7M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-27-quantumult-x-node-share.htm" title="12月27日 - 最高速度20.6M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">12月27日 - 最高速度20.6M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-6-quantumult-x-node-github.htm" title="12月6日 - 最高速度22.2M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">12月6日 - 最高速度22.2M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-34442.htm" title="动物打了疫苗有什么用（动物打防疫针）">动物打了疫苗有什么用（动物打防疫针）</a></li>
+                        <li class="py-2"><a href="/news/article-37815.htm" title="太原免费领养猫咪 太原免费领养猫咪的地方">太原免费领养猫咪 太原免费领养猫咪的地方</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-6-today-quantumult-x-node.htm" title="11月6日 - 最高速度22.9M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">11月6日 - 最高速度22.9M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-12-quantumult-x-node-share.htm" title="11月12日 - 最高速度20.1M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">11月12日 - 最高速度20.1M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-14-free-node-subscribe.htm" title="10月14日 - 最高速度20.7M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">10月14日 - 最高速度20.7M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-7-quantumult-x-github.htm" title="10月7日 - 最高速度20.6M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接">10月7日 - 最高速度20.6M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-12-quantumult-x-node.htm" title="12月12日 - 最高速度23M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">12月12日 - 最高速度23M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div><!-- end container -->
+    </div><!-- end section -->
+    	    <div class="copyrights">
+        <div class="container">
+            <div class="footer-distributed">
+                <div class="footer-left">
+                    <p class="footer-company-name">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <a href="/">QuantumultX Node(圈X)官方节点站</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div><!-- end container -->
+    </div><!-- end copyrights -->
+    <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+    <!-- ALL JS FILES -->
+    <script src="/assets/website/js/frontend/quantumultxnode/all.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="/assets/website/js/frontend/quantumultxnode/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
