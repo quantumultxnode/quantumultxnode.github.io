@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://quantumultxnode.github.io/news/article-38791.htm" />
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>python hdfs模块使用</title>
+        <meta name="description" content="title: python hdfs模块使用 date: 2017-02-21 20:43:11 categories: Python tags: HDFS  HDFS是hadoop分布式文件系统，H" />
+        <link rel="icon" href="/assets/website/img/quantumultxnode/favicon.ico" type="image/x-icon"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/bootstrap.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/style.css">
+    <!-- Colors CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/colors.css">
+    <!-- ALL VERSION CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/versions.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/custom.css">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HT2LRJJHKV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HT2LRJJHKV');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body class="seo_version" data-page="detail">
+    <!-- LOADER -->
+    <div id="preloader">
+        <div id="cupcake" class="box">
+            <span class="letter">L</span>
+            <div class="cupcakeCircle box">
+                <div class="cupcakeInner box">
+                    <div class="cupcakeCore box"></div>
+                </div>
+            </div>
+            <span class="letter box">A</span>
+            <span class="letter box">D</span>
+            <span class="letter box">I</span>
+            <span class="letter box">N</span>
+            <span class="letter box">G</span>
+        </div>
+    </div>
+    <!-- END LOADER -->
+    <header class="header header_style_01">
+        <nav class="megamenu navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                                        <a class="navbar-brand" href="/">
+                        Quantumult X Node
+                    </a>
+                                    </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right menu-top">
+                                                <li><a href="/">首页</a></li>
+                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                <li><a href="/news/">新闻资讯</a></li>
+                                                <li><a href="#">关于</a></li>
+                        <li><a href="#">联系</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="all-page-title" style="background-image:url(images/pattern-4.png);">
+        <div class="container text-center">
+            <h1>python hdfs模块使用</h1>
+        </div>
+        <!--Page -->
+        <div class="page-info">
+            <div class="container">
+                <div class="inner-container">
+                    <ul class="bread-crumb">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li><span>正文</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--End Page-->
+    </div><!-- end section -->
+    <svg id="clouds" class="hidden-xs" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 85 100" preserveAspectRatio="none">
+        <path d="M-5 100 Q 0 20 5 100 Z
+            M0 100 Q 5 0 10 100
+            M5 100 Q 10 30 15 100
+            M10 100 Q 15 10 20 100
+            M15 100 Q 20 30 25 100
+            M20 100 Q 25 -10 30 100
+            M25 100 Q 30 10 35 100
+            M30 100 Q 35 30 40 100
+            M35 100 Q 40 10 45 100
+            M40 100 Q 45 50 50 100
+            M45 100 Q 50 20 55 100
+            M50 100 Q 55 40 60 100
+            M55 100 Q 60 60 65 100
+            M60 100 Q 65 50 70 100
+            M65 100 Q 70 20 75 100
+            M70 100 Q 75 45 80 100
+            M75 100 Q 80 30 85 100
+            M80 100 Q 85 20 90 100
+            M85 100 Q 90 50 95 100
+            M90 100 Q 95 25 100 100
+            M95 100 Q 100 15 105 100 Z">
+        </path>
+    </svg>
+    <div id="about" class="section wb nopadtop">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <hr/> <p>title: python hdfs模块使用<br /> date: 2017-02-21 20:43:11<br /> categories: Python<br /> tags: HDFS</p> <hr/> <p>HDFS是hadoop分布式文件系统，HDFS中有两类节点。一类是NameNode，一类是DataNode。<br /> 其中NameNode是管理者，存储各种文件的元数据，SecondaryNameNode作为NameNode的冷备份。DataNode则是真正存储数据块，进行文件读写的地方。<br /> 更多内容参考<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://www.uml.org.cn/sjjm/201309044.asp"  rel="nofollow">HDFS 原理、架构与特性介绍</a></p> <p>python中对hdfs api封装的模块主要有hdfs,hdfs3,pytinyhdfs，PYHDFS等。这里选择hdfs比较简单清晰。</p> <ol> <li> <p>安装<br /><code>pip install hdfs</code></p> </li> <li> <p>连接</p> <pre><code class="prism language-python">     <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">from</span> hdfs <span class="token keyword">import</span> <span class="token operator">*</span>      <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> client<span class="token operator">=</span>Client<span class="token punctuation">(</span><span class="token string">'http://192.168.71.109:50070'</span><span class="token punctuation">)</span> </code></pre> <pre><code>    这里是在windwos上连接IP为192.168.71.109的安装有hadoop机器 </code></pre> </li> <li> <p>列出文件</p> <pre><code class="prism language-python">     <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> client<span class="token punctuation">.</span><span class="token builtin">list</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span>      <span class="token punctuation">[</span><span class="token string">'2017'</span><span class="token punctuation">]</span> </code></pre> </li> <li> <p>新建文件夹</p> <pre><code class="prism language-python">     <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> client<span class="token punctuation">.</span>makedirs<span class="token punctuation">(</span><span class="token string">'/a/b/c'</span><span class="token punctuation">)</span> </code></pre> <pre><code> 可以递归创建文件夹，完成后不返回结果 </code></pre> </li> <li> <p>重命名/移动</p> <pre><code class="prism language-python">     <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> client<span class="token punctuation">.</span>rename<span class="token punctuation">(</span><span class="token string">'/2017/02'</span><span class="token punctuation">,</span><span class="token string">'/2017/03'</span><span class="token punctuation">)</span>      <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> client<span class="token punctuation">.</span><span class="token builtin">list</span><span class="token punctuation">(</span><span class="token string">'/2017'</span><span class="token punctuation">)</span>      <span class="token punctuation">[</span><span class="token string">'03'</span><span class="token punctuation">]</span> </code></pre> <pre><code> 可以对文件进行重命名，移动操作，类似mv命令。函数原型`rename (hdfs_src_path, hdfs_dst_path)` </code></pre> </li> <li> <p>删除</p> <pre><code class="prism language-python">     <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> client<span class="token punctuation">.</span>delete<span class="token punctuation">(</span><span class="token string">'/2017'</span><span class="token punctuation">,</span>recursive<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>      <span class="token boolean">True</span> </code></pre> <pre><code> recursive为递归删除，类似`rm -r`，函数原型`delete(hdfs_path, recursive=False)` </code></pre> </li> <li> <p>写文件</p> <pre><code class="prism language-python">    <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'D:/tmp/test.txt'</span><span class="token punctuation">,</span><span class="token string">'rb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>     <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     data<span class="token operator">=</span>f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>     <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> client<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'/2017/02/test.txt'</span><span class="token punctuation">,</span>data<span class="token operator">=</span>data<span class="token punctuation">)</span> </code></pre> <p>这里会报错，信息如下：</p> <pre><code class="prism language-python">  requests<span class="token punctuation">.</span>exceptions<span class="token punctuation">.</span>ConnectionError<span class="token punctuation">:</span> HTTPConnectionPool<span class="token punctuation">(</span>host<span class="token operator">=</span><span class="token string">'debian'</span><span class="token punctuation">,</span> port<span class="token operator">=</span><span class="token number">50075</span><span class="token punctuation">)</span><span class="token punctuation">:</span> Max retries exceeded <span class="token keyword">with</span> url<span class="token punctuation">:</span> <span class="token operator">/</span>webhdfs<span class="token operator">/</span>v1<span class="token operator">/</span><span class="token number">2017</span><span class="token operator">/</span><span class="token number">02</span><span class="token operator">/</span>test<span class="token punctuation">.</span>txt?op<span class="token operator">=</span>CREATE<span class="token operator">&amp;</span>namenoderpcaddress<span class="token operator">=</span>localhost<span class="token punctuation">:</span><span class="token number">9000</span><span class="token operator">&amp;</span>overwrite<span class="token operator">=</span>false <span class="token punctuation">(</span>Caused by NewConnectionError<span class="token punctuation">(</span>'<span class="token operator">&lt;</span>requests<span class="token punctuation">.</span>packages<span class="token punctuation">.</span>urllib3<span class="token punctuation">.</span>connection<span class="token punctuation">.</span>HTTPConnection <span class="token builtin">object</span> at <span class="token number">0x03BB0D10</span><span class="token operator">&gt;</span><span class="token punctuation">:</span> Failed to establish a new connection<span class="token punctuation">:</span> <span class="token punctuation">[</span>Errno <span class="token number">11001</span><span class="token punctuation">]</span> getaddrinfo failed'<span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span> </code></pre> <p>这里<code>host='debian'</code>，<code>namenoderpcaddress=localhost:9000</code>，debian是安装hadoop的linux主机名，localhost:9000并不是namenode所在IP。原因是hdfs在读写操作中，namenode向客户端返回datanode时是主机名，而不是IP。所以需要在hosts文件中加入datanode主机名与IP的记录。</p> <pre><code>#	127.0.0.1       localhost #	::1             localhost 192.168.71.109 debian </code></pre> <p>再来操作即可成功。</p> <pre><code class="prism language-python">   <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> client<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'/2017/02/test.txt'</span><span class="token punctuation">,</span>data<span class="token operator">=</span>data<span class="token punctuation">)</span>    <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> client<span class="token punctuation">.</span><span class="token builtin">list</span><span class="token punctuation">(</span><span class="token string">'/2017/02/'</span><span class="token punctuation">)</span>    <span class="token punctuation">[</span><span class="token string">'test.txt'</span><span class="token punctuation">]</span> </code></pre> <p>函数原型：<code>write(hdfs_path, data=None, overwrite=False, permission=None, blocksize=None, replication=None, buffersize=None, append=False, encoding=None)</code></p> <p>overwrite 当目标文件存在时，覆盖写入。</p> </li> <li> <p>读文件</p> <pre><code class="prism language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">with</span> client<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token string">'/2017/02/test.txt'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     data<span class="token operator">=</span>f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token number">2017</span>年<span class="token number">2</span>月<span class="token number">21</span>日<span class="token number">13</span><span class="token punctuation">:</span><span class="token number">11</span><span class="token punctuation">:</span><span class="token number">37</span> test </code></pre> </li> <li> <p>上传</p> <pre><code class="prism language-python">   <span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> client<span class="token punctuation">.</span>upload<span class="token punctuation">(</span><span class="token string">'/2017/02/test.txt'</span><span class="token punctuation">,</span><span class="token string">'D:/tmp/test.txt'</span><span class="token punctuation">,</span>overwrite<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>    <span class="token string">'/2017/02/test.txt'</span> </code></pre> </li> <li> <p>下载</p> </li> </ol> <pre><code>```python &gt;&gt;&gt; client.download('/2017/02/test.txt','D:/tmp/test2.txt') 'D:\\tmp\\test2.txt' ``` </code></pre> <p><strong>参考：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://hdfscli.readthedocs.io/en/latest/index.html"  rel="nofollow">官方文档</a></strong></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-38298.htm">宠物粮食品牌前十名排行榜有哪些呢图片及价格（宠物粮生产厂家排名）</a></p>
+                                        <p>下一个：<a href="/news/article-38792.htm">[ Shell ] 通过 Shell 脚本导出 GDSII/OASIS 文件</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-37317.htm" title="QT下载安装和Visual Studio环境配置">QT下载安装和Visual Studio环境配置</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-22-latest-quantumult-x-node.htm" title="12月22日 - 最高速度19.9M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">12月22日 - 最高速度19.9M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-28738.htm" title="猫到底打不打疫苗（猫该不该打疫苗）">猫到底打不打疫苗（猫该不该打疫苗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-12-quantumult-x-node-share.htm" title="11月12日 - 最高速度20.1M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">11月12日 - 最高速度20.1M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-27353.htm" title="动物疫苗包括哪些疫苗（动物疫苗包括哪些疫苗种类）">动物疫苗包括哪些疫苗（动物疫苗包括哪些疫苗种类）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-29-node-share.htm" title="10月29日 - 最高速度22.9M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">10月29日 - 最高速度22.9M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-39285.htm" title="动物防疫工作总结报告范文（动物防疫工作总结及下步工作开展）">动物防疫工作总结报告范文（动物防疫工作总结及下步工作开展）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-12-today-quantumult-x-node.htm" title="10月12日 - 最高速度20M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接">10月12日 - 最高速度20M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-22259.htm" title="dellbios设置硬盘启动项（dellbios怎么设置硬盘启动顺序）">dellbios设置硬盘启动项（dellbios怎么设置硬盘启动顺序）</a></li>
+                        <li class="py-2"><a href="/news/article-25958.htm" title="被猫咬了没有打针会不会致命（被猫咬了没打针会传染吗）">被猫咬了没有打针会不会致命（被猫咬了没打针会传染吗）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div><!-- end container -->
+    </div><!-- end section -->
+    	    <div class="copyrights">
+        <div class="container">
+            <div class="footer-distributed">
+                <div class="footer-left">
+                    <p class="footer-company-name">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <a href="/">QuantumultX Node(圈X)官方节点站</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div><!-- end container -->
+    </div><!-- end copyrights -->
+    <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+    <!-- ALL JS FILES -->
+    <script src="/assets/website/js/frontend/quantumultxnode/all.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="/assets/website/js/frontend/quantumultxnode/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
