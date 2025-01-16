@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://quantumultxnode.github.io/news/article-40275.htm" />
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>一文搞懂js中的typeof用法_在线工具</title>
+        <meta name="description" content="基础 typeof 运算符是 javascript 的基础知识点，尽管它存在一定的局限性（见下文），但在前端js的实际编码过程中，仍然是使用比较多的类型判断方式。 因此，掌握该运算符的特点，对于写出好" />
+        <link rel="icon" href="/assets/website/img/quantumultxnode/favicon.ico" type="image/x-icon"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/bootstrap.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/style.css">
+    <!-- Colors CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/colors.css">
+    <!-- ALL VERSION CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/versions.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/custom.css">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HT2LRJJHKV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HT2LRJJHKV');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body class="seo_version" data-page="detail">
+    <!-- LOADER -->
+    <div id="preloader">
+        <div id="cupcake" class="box">
+            <span class="letter">L</span>
+            <div class="cupcakeCircle box">
+                <div class="cupcakeInner box">
+                    <div class="cupcakeCore box"></div>
+                </div>
+            </div>
+            <span class="letter box">A</span>
+            <span class="letter box">D</span>
+            <span class="letter box">I</span>
+            <span class="letter box">N</span>
+            <span class="letter box">G</span>
+        </div>
+    </div>
+    <!-- END LOADER -->
+    <header class="header header_style_01">
+        <nav class="megamenu navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                                        <a class="navbar-brand" href="/">
+                        Quantumult X Node
+                    </a>
+                                    </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right menu-top">
+                                                <li><a href="/">首页</a></li>
+                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                <li><a href="/news/">新闻资讯</a></li>
+                                                <li><a href="#">关于</a></li>
+                        <li><a href="#">联系</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="all-page-title" style="background-image:url(images/pattern-4.png);">
+        <div class="container text-center">
+            <h1>一文搞懂js中的typeof用法_在线工具</h1>
+        </div>
+        <!--Page -->
+        <div class="page-info">
+            <div class="container">
+                <div class="inner-container">
+                    <ul class="bread-crumb">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li><span>正文</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--End Page-->
+    </div><!-- end section -->
+    <svg id="clouds" class="hidden-xs" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 85 100" preserveAspectRatio="none">
+        <path d="M-5 100 Q 0 20 5 100 Z
+            M0 100 Q 5 0 10 100
+            M5 100 Q 10 30 15 100
+            M10 100 Q 15 10 20 100
+            M15 100 Q 20 30 25 100
+            M20 100 Q 25 -10 30 100
+            M25 100 Q 30 10 35 100
+            M30 100 Q 35 30 40 100
+            M35 100 Q 40 10 45 100
+            M40 100 Q 45 50 50 100
+            M45 100 Q 50 20 55 100
+            M50 100 Q 55 40 60 100
+            M55 100 Q 60 60 65 100
+            M60 100 Q 65 50 70 100
+            M65 100 Q 70 20 75 100
+            M70 100 Q 75 45 80 100
+            M75 100 Q 80 30 85 100
+            M80 100 Q 85 20 90 100
+            M85 100 Q 90 50 95 100
+            M90 100 Q 95 25 100 100
+            M95 100 Q 100 15 105 100 Z">
+        </path>
+    </svg>
+    <div id="about" class="section wb nopadtop">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<h2 id="基础">基础</h2> <p><code>typeof</code> 运算符是 <code>javascript</code> 的基础知识点，尽管它存在一定的局限性（见下文），但在前端js的实际编码过程中，仍然是使用比较多的类型判断方式。<br /> 因此，掌握该运算符的特点，对于写出好的代码，就会起到很大的帮助作用。</p> <p><strong>typeof</strong> 返回一个字符串，表示该操作值的数据类型，基本语法：</p> <pre><code class="language-js">typeof operand typeof(operand) </code></pre> <p>可能返回的类型字符串有：<code>string</code>, <code>boolean</code>, <code>number</code>, <code>bigint</code>, <code>symbol</code>, <code>undefined</code>, <code>function</code>, <code>object</code>。</p> <h2 id="返回类型">返回类型</h2> <p>将根据可能的返回类型，进行以下的分类介绍，对typeof的使用方法一网打尽。</p> <h3 id="string-和-boolean">string 和 boolean</h3> <p>字符串、布尔值分别返回 <code>string</code>、<code>boolean</code>。<br /> 包括 <code>String()</code> 和 <code>Boolean()</code>。</p> <pre><code class="language-js">typeof '1' // 'string' typeof String(1) // 'string' typeof true // 'boolean' typeof Boolean() // 'boolean' </code></pre> <h3 id="number-和-bigint">number 和 bigint</h3> <p>数字返回 <code>number</code>，包括 <code>Number()</code>、<code>NaN</code> 和 <code>Infinity</code> 等，以及 <code>Math</code> 对象下的各个数学常量值。<br /><code>BigInt</code> 数字类型值返回 <code>bigint</code>，包括 <code>BigInt(1)</code>。</p> <pre><code class="language-js">typeof 1 // 'number' typeof NaN // 'number' typeof Math.PI // 'number' typeof 42n // 'bigint' typeof BigInt(1) // 'bigint' </code></pre> <h3 id="symbol">symbol</h3> <p><strong>symbol</strong> 值返回 <code>symbol</code>，包括 <code>Symbol()</code>。</p> <pre><code class="language-js">typeof Symbol() // 'symbol' typeof Symbol('foo') // 'symbol' typeof Symbol.iterator // 'symbol' </code></pre> <h3 id="undefined">undefined</h3> <p><strong>undefined</strong> 本身返回 <code>undefined</code>。<br /> 不存在的，或者定义了但未赋初值的变量，都会返回 <code>undefined</code>。<br /> 还有 <code>document.all</code> 等浏览器的非标准特性。</p> <pre><code class="language-js">typeof undefined // 'undefined' typeof ttttttt // 'undefined' typeof document.all // 'undefined' </code></pre> <h3 id="function">function</h3> <p>函数返回 <code>function</code>。<br /> 包括使用es6的 <code>class</code> 类声明的。<br /> 还有各个内置对象 <code>String</code>、<code>Number</code>、<code>BigInt</code>、<code>Boolean</code>、<code>RegExp</code>、<code>Error</code>、<code>Object</code>、<code>Date</code>、<code>Array</code>、<code>Function</code>、<code>Symbol</code> 本身。<br /> 以及 <code>Function()</code>，<code>new Function()</code>。</p> <pre><code class="language-js">function func () {} typeof func // 'function' typeof class cs {} // 'function' typeof String // 'function' typeof RegExp // 'function' typeof new Function() // 'function' </code></pre> <h3 id="object">object</h3> <p><code>对象</code>、<code>数组</code>、<code>null</code>、<code>正则表达式</code>，都返回 <code>object</code>。<br /> 包括 <code>Math</code>、<code>JSON</code> 对象本身。<br /> 还有使用 <code>new</code> 操作符的数据，除了 <code>Function</code> 以外。</p> <pre><code class="language-js">typeof {} // 'object' typeof [] // 'object' typeof null // 'object' typeof /d/ // 'object' typeof Math // 'object' typeof new Number(1) // 'object' </code></pre> <h3 id="其他">其他</h3> <p>关于其他大部分的 <code>javascript关键字</code>，得到的结果值都是 <code>object</code> 或 <code>function</code>。<br /> 注：<em>多数小写字母开头的是对象 <code>object</code>，多数大写字母开头的都是方法 <code>function</code>。常见的明确知道的方法不算，如 <code>alert</code>，<code>prompt</code> 等方法</em></p> <p>除此以外，还有各js环境下具体实现的宿主对象。</p> <h2 id="常见问题">常见问题</h2> <h3 id="引用错误">引用错误</h3> <p>在 <code>let</code> 和 <code>const</code> 块级作用域变量定义之前，使用 <code>typeof</code> 会抛错 <code>ReferenceError</code>。<br /> 因为块级作用域变量，会在头部形成 <code>暂存死区</code>，直到被初始化，否则会报引用错误。</p> <pre><code class="language-js">typeof t let t = 1 // VM327:1 Uncaught ReferenceError: t is not defined //    at &lt;anonymous&gt;:1:1 </code></pre> <p>如果是使用 <code>var</code> 定义变量，不会报错，返回 <code>undefined</code> 。<br /> 有变量提升，不会形成暂时死区。</p> <h3 id="typeof-null">typeof null</h3> <p>对于 <code>typeof null === 'object'</code> ，记住即可，可能的解释：<br /><em>在JavaScript 最初的实现中，JavaScript 中的值是由一个表示类型的标签和实际数据值表示的。对象的类型标签是 0。由于null代表的是空指针（大多数平台下值为 0x00），因此，null 的类型标签是 0，typeof null 也因此返回 "object"。</em></p> <h3 id="typeof-的局限性">typeof 的局限性</h3> <p><code>typeof</code> 的局限性，在于无法精确判断出 <code>null、数组、对象、正则</code> 的类型。<br /> 所以如果要精准判断，还需要使用其他技术手段，或组合判断。<br /> 如下，判断数组类型：</p> <pre><code class="language-js">Object.prototype.toString.call([]) // '[object Array]'  [] instanceof Array // true  [].constructor === Array // true </code></pre> <p>其中，<code>Object.prototype.toString.call</code> 是javascript中用于准确判断数据类型的通用手段。</p> <h2 id="扩展bigint-类型">扩展：BigInt 类型</h2> <p><code>BigInt</code> 来自于 <code>ES11</code> 增加的一种最新的基础类型，可以用任意精度表示整数。<br /> 它提供了一种表示大于 <code>2^53 - 1</code> 整数的方法，能表示任意大的整数。<br /> 它是通过在整数末尾附加 <code>n</code> 或调用构造函数 <code>BigInt()</code> 来创建的。<br /><code>IE</code> 不支持。</p> <pre><code class="language-js">10n BigInt(99) // 99n </code></pre> <p><strong>注意点：</strong></p> <ul> <li> <code>BigInt</code> 能使用运算符 <code>+、*、-、**和%</code>。</li> <li>除 <code>&gt;&gt;&gt; （无符号右移）</code> 之外的 <code>位操作</code> 也可以支持。因为<code>BigInt</code> 都是有符号的。</li> <li> <code>BigInt</code> 不支持单目 (+) 运算符，会报类型错误。</li> <li>不能对 <code>BigInt</code> 使用 <code>Math</code> 对象中的方法。</li> <li> <code>BigInt</code> 不能与 <code>Number数字</code> 进行混合计算，否则，将抛出 <code>TypeError</code>。</li> <li>在将 <code>BigInt</code> 转换为 <code>Boolean</code> 时，它的行为类似 <code>Number数字</code> 。</li> <li> <code>BigInt</code> 变量在转换成 <code>Number</code> 变量时可能会丢失精度。</li> <li> <code>typeof</code> 操作时返回 <code>bigint</code>。</li> <li>使用 <code>Object、String</code> 等内置对象转换时，类似于 <code>Number数字</code>。</li> <li> <code>BigInt</code> 使用 <code>/</code> 除操作时，带小数的运算会被取整。</li> <li> <code>Number</code> 和 <code>BigInt</code> 可以进行比较，非严格相等。</li> <li> <code>JSON.stringify</code> 处理 <code>BigInt</code> 会引发类型错误。</li> </ul> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-39793.htm">动物疫苗生产技术员工作（动物疫苗销售招聘2020）</a></p>
+                                        <p>下一个：<a href="/news/article-40276.htm">一片枫叶一片红什么意思（一片枫叶一片红什么意思呀）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-10-14-free-node-subscribe.htm" title="10月14日 - 最高速度20.7M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">10月14日 - 最高速度20.7M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-24577.htm" title="济南哪里有领养宠物的地方（济南有领养宠物的地方吗）">济南哪里有领养宠物的地方（济南有领养宠物的地方吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-11-quantumult-x-node-github.htm" title="11月11日 - 最高速度22.6M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">11月11日 - 最高速度22.6M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-19965.htm" title="动物防疫站免费打狂犬疫苗（动物防疫站打狂犬疫苗多少钱）">动物防疫站免费打狂犬疫苗（动物防疫站打狂犬疫苗多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-19061.htm" title="一文弄懂Spring Boot应用分层构建Docker Image镜像">一文弄懂Spring Boot应用分层构建Docker Image镜像</a></li>
+                        <li class="py-2"><a href="/news/article-38792.htm" title="[ Shell ] 通过 Shell 脚本导出 GDSII/OASIS 文件">[ Shell ] 通过 Shell 脚本导出 GDSII/OASIS 文件</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-12-quantumult-x-node-github.htm" title="1月12日 - 最高速度22.3M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">1月12日 - 最高速度22.3M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-5-quantumult-x-node.htm" title="1月5日 - 最高速度18.6M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">1月5日 - 最高速度18.6M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-5-free-quantumult-x-node.htm" title="12月5日 - 最高速度18.4M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">12月5日 - 最高速度18.4M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-33965.htm" title="开一家动物诊所需要多少钱 开一家动物诊所需要多少钱呢">开一家动物诊所需要多少钱 开一家动物诊所需要多少钱呢</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div><!-- end container -->
+    </div><!-- end section -->
+    	    <div class="copyrights">
+        <div class="container">
+            <div class="footer-distributed">
+                <div class="footer-left">
+                    <p class="footer-company-name">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <a href="/">QuantumultX Node(圈X)官方节点站</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div><!-- end container -->
+    </div><!-- end copyrights -->
+    <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+    <!-- ALL JS FILES -->
+    <script src="/assets/website/js/frontend/quantumultxnode/all.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="/assets/website/js/frontend/quantumultxnode/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
