@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://quantumultxnode.github.io/news/article-43256.htm" />
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>JVM系列：jinfo命令详解</title>
+        <meta name="description" content="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jinfo全称Java Configuration Info，主要作用是实时查看和调整JVM配置参数。 目录  			    2019独角兽" />
+        <link rel="icon" href="/assets/website/img/quantumultxnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="QuantumultX Node(圈X)官方节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://quantumultxnode.github.io/news/article-43256.htm" />
+    <meta property="og:site_name" content="QuantumultX Node(圈X)官方节点站" />
+    <meta property="og:title" content="JVM系列：jinfo命令详解" />
+    <meta property="og:image" content="https://quantumultxnode.github.io/uploads/20240726-1/d5d83c97f65cb33376ad7a58860d4c59.webp" />
+        <meta property="og:release_date" content="2025-01-20T07:10:41" />
+    <meta property="og:updated_time" content="2025-01-20T07:10:41" />
+        <meta property="og:description" content="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jinfo全称Java Configuration Info，主要作用是实时查看和调整JVM配置参数。 目录  			    2019独角兽" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="JVM系列：jinfo命令详解">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/bootstrap.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/style.css">
+    <!-- Colors CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/colors.css">
+    <!-- ALL VERSION CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/versions.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/custom.css">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HT2LRJJHKV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HT2LRJJHKV');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body class="seo_version" data-page="detail">
+    <!-- LOADER -->
+    <div id="preloader">
+        <div id="cupcake" class="box">
+            <span class="letter">L</span>
+            <div class="cupcakeCircle box">
+                <div class="cupcakeInner box">
+                    <div class="cupcakeCore box"></div>
+                </div>
+            </div>
+            <span class="letter box">A</span>
+            <span class="letter box">D</span>
+            <span class="letter box">I</span>
+            <span class="letter box">N</span>
+            <span class="letter box">G</span>
+        </div>
+    </div>
+    <!-- END LOADER -->
+    <header class="header header_style_01">
+        <nav class="megamenu navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                                        <a class="navbar-brand" href="/">
+                        Quantumult X Node
+                    </a>
+                                    </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right menu-top">
+                                                <li><a href="/">首页</a></li>
+                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                <li><a href="/news/">新闻资讯</a></li>
+                                                <li><a href="#">关于</a></li>
+                        <li><a href="#">联系</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="all-page-title" style="background-image:url(images/pattern-4.png);">
+        <div class="container text-center">
+            <h1>JVM系列：jinfo命令详解</h1>
+        </div>
+        <!--Page -->
+        <div class="page-info">
+            <div class="container">
+                <div class="inner-container">
+                    <ul class="bread-crumb">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li><span>正文</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--End Page-->
+    </div><!-- end section -->
+    <svg id="clouds" class="hidden-xs" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 85 100" preserveAspectRatio="none">
+        <path d="M-5 100 Q 0 20 5 100 Z
+            M0 100 Q 5 0 10 100
+            M5 100 Q 10 30 15 100
+            M10 100 Q 15 10 20 100
+            M15 100 Q 20 30 25 100
+            M20 100 Q 25 -10 30 100
+            M25 100 Q 30 10 35 100
+            M30 100 Q 35 30 40 100
+            M35 100 Q 40 10 45 100
+            M40 100 Q 45 50 50 100
+            M45 100 Q 50 20 55 100
+            M50 100 Q 55 40 60 100
+            M55 100 Q 60 60 65 100
+            M60 100 Q 65 50 70 100
+            M65 100 Q 70 20 75 100
+            M70 100 Q 75 45 80 100
+            M75 100 Q 80 30 85 100
+            M80 100 Q 85 20 90 100
+            M85 100 Q 90 50 95 100
+            M90 100 Q 95 25 100 100
+            M95 100 Q 100 15 105 100 Z">
+        </path>
+    </svg>
+    <div id="about" class="section wb nopadtop">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				  			 <div id="log-box">  				<div id="catalog"><ul id="catalog-ul"> <li><i class="be be-arrowright"></i> <a href="#title-0" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jinfo全称Java Configuration Info，主要作用是实时查看和调整JVM配置参数。">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jinfo全称Java Configuration Info，主要作用是实时查看和调整JVM配置参数。</a></li> </ul><span class="log-zd"><span class="log-close"><a title="隐藏目录"><i class="be be-cross"></i><strong>目录</strong></a></span></span></div>  			</div> <div id="content_views" class="htmledit_views"> <div class="content" id="articleContent"> <div class="ad-wrap"> <p><a style="color:#A00;font-weight:bold;" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://my.oschina.net/u/2663968/blog/3061697"  rel="nofollow">2019独角兽企业重金招聘Python工程师标准&gt;&gt;&gt; </a> <img decoding="async" src="http://img.555519.xyz/uploads/20230223/2451e355adb13959213834c5a628f71a.jpg" alt="JVM系列：jinfo命令详解"></p> </p></div> <p> <span id="OSC_h4_1"></span> </p> <span class="directory"></span><h4 id="title-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jinfo全称Java Configuration Info，主要作用是实时查看和调整JVM配置参数。</h4> <p> <span id="OSC_h3_2"></span> </p> <h3><strong>一.查看JVM参数</strong></h3> <p>&nbsp;&nbsp;&nbsp;&nbsp;用法：jinfo -flag &lt;name&gt; PID</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;示例：</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# jinfo -flag MaxMetaspaceSize 11180</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# -XX:MaxMetaspaceSize=536870912</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表示 MaxMetaspaceSize的大小为512M</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意：如果没有配置，就会显示一个超大的数字：</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# -XX:MaxMetaspaceSize=18446744073709547520</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# jinfo -flag ThreadStackSize 8752</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# -XX:ThreadStackSize=256</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表示Xss(线程堆栈大小)为256K</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意：如果没有配置，显示数量为0：</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# -XX:ThreadStackSize=0</p> <p>&nbsp;</p> <p> <span id="OSC_h3_3"></span> </p> <h3><strong>二.调整JVM参数</strong></h3> <p><strong>(1)布尔类型的JVM参数</strong></p> <p>&nbsp;&nbsp;&nbsp;&nbsp;用法：jinfo -flag [+|-]&lt;name&gt; PID</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;生效或者失效指定名字的参数</p> <p><strong>(2)数字/字符串类型的JVM参数</strong></p> <p>&nbsp;&nbsp;&nbsp;&nbsp;用法：jinfo -flag &lt;name&gt;=&lt;value&gt; PID</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;使用给定的值，设置参数的值</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;注意：如果出现，</p> <pre><code class="language-java">Exception in thread "main" java.io.IOException: Command failed in target VM         at sun.tools.attach.WindowsVirtualMachine.execute(WindowsVirtualMachine.java:112)         at sun.tools.attach.HotSpotVirtualMachine.executeCommand(HotSpotVirtualMachine.java:217)         at sun.tools.attach.HotSpotVirtualMachine.setFlag(HotSpotVirtualMachine.java:190)         at sun.tools.jinfo.JInfo.flag(JInfo.java:123)         at sun.tools.jinfo.JInfo.main(JInfo.java:76)</code></pre> <p>&nbsp;&nbsp;&nbsp;&nbsp;则表示，对这个flag参数不支持。</p> <p>&nbsp;</p> <p> <span id="OSC_h3_4"></span> </p> <h3><strong>三.查看支持动态修改的JVM参数</strong></h3> <p>&nbsp;&nbsp;&nbsp;&nbsp;官方文档中这样描述：标记为manageable的参数通过JConsole或者通过HotSpotDiagnosticMXBean这个类的接口查看。</p> <p><strong>(1)通过JConsole查看标记为manageable的Flags</strong></p> <p>&nbsp;&nbsp;&nbsp;&nbsp;Linux下：java -XX:+PrintFlagsInitial | grep manageable</p> <p><img fetchpriority="high" decoding="async" alt="" height="300" src="http://img.555519.xyz/uploads/20230223/7edc6d1a99d9554a51bf53ac4a7ad243.jpg"></p> <p>&nbsp;&nbsp;&nbsp;&nbsp;Windows下：java -XX:+PrintFlagsInitial | findstr manageable</p> <p><img decoding="async" alt="" height="250" src="http://img.555519.xyz/uploads/20230223/805d5696e563cd665257699d8a0271ef.jpg"></p> <p>&nbsp;</p> <p><strong>(2)通过HotSpotDiagnosticMXBean</strong></p> <p>&nbsp;&nbsp;&nbsp;&nbsp;Java官方的<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.oracle.com/javase/8/docs/jre/api/management/extension/com/sun/management/HotSpotDiagnosticMXBean.html"  rel="nofollow">API文档</a>中，接口HotSpotDiagnosticMXBean有一个getDiagnosticOptions()的方法，返回所有可动态修改的JVM参数。通过接口HotSpotDiagnosticMXBean的实现类 - HotSpotDiagnostic来调用这个方法。</p> <p><img decoding="async" alt="" height="200" src="http://img.555519.xyz/uploads/20230223/b7ff6a5c11f710aaa62723c2c2402ac2.jpg"></p> <p>&nbsp;&nbsp;&nbsp;&nbsp;使用Java代码调用查看：</p> <pre><code class="language-java">HotSpotDiagnostic mxBean = new HotSpotDiagnostic(); List&lt;VMOption&gt; diagnosticVMOptions = mxBean.getDiagnosticOptions(); System.out.println("Writeable VM option: "); for (VMOption vmOption:diagnosticVMOptions){      System.out.println("  "+vmOption.getName() + " = " + vmOption.getValue()); }</code></pre> <p>&nbsp;&nbsp;&nbsp;&nbsp;运行结果：</p> <pre><code class="language-java">Writeable VM option:    HeapDumpBeforeFullGC = false   HeapDumpAfterFullGC = false   HeapDumpOnOutOfMemoryError = false   HeapDumpPath =    CMSAbortablePrecleanWaitMillis = 100   CMSWaitDuration = 2000   CMSTriggerInterval = -1   PrintGC = false   PrintGCDetails = false   PrintGCDateStamps = false   PrintGCTimeStamps = false   PrintGCID = false   PrintClassHistogramBeforeFullGC = false   PrintClassHistogramAfterFullGC = false   PrintClassHistogram = false   MinHeapFreeRatio = 0   MaxHeapFreeRatio = 100   PrintConcurrentLocks = false   UnlockCommercialFeatures = false</code></pre> <p>&nbsp;</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;参考资料：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.jianshu.com/p/c321d0808a1b"  rel="nofollow">简书-阿飞Javaer jinfo命令详解</a></p> <div class="ad-wrap"> <div id="blog-title-ad">    <ins class="adsbygoogle"></ins>   </div> </p></div> </div> <p>转载于:https://my.oschina.net/javamaster/blog/1833908</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-42758.htm">国内动物疫苗龙头企业名单最新（动物疫苗龙头股排名）</a></p>
+                                        <p>下一个：<a href="/news/article-43257.htm">springMVC中的@RequestMapping注解</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-22712.htm" title="动物疫苗要打几针才有效果呢（动物疫苗打一次管多长时间）">动物疫苗要打几针才有效果呢（动物疫苗打一次管多长时间）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-4-quantumult-x-node-github.htm" title="1月4日 - 最高速度19.2M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">1月4日 - 最高速度19.2M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-35517.htm" title="vue实力踩坑 当前页push当前页无效的解决_vue.js_">vue实力踩坑 当前页push当前页无效的解决_vue.js_</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-21-latest-quantumult-x-node.htm" title="1月21日 - 最高速度20.4M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">1月21日 - 最高速度20.4M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-23638.htm" title="宠物领养协议押金 宠物领养协议押金多少">宠物领养协议押金 宠物领养协议押金多少</a></li>
+                        <li class="py-2"><a href="/news/article-24577.htm" title="济南哪里有领养宠物的地方（济南有领养宠物的地方吗）">济南哪里有领养宠物的地方（济南有领养宠物的地方吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-21-latest-quantumult-x-node.htm" title="11月21日 - 最高速度18.1M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">11月21日 - 最高速度18.1M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-25-free-high-speed-nodes.htm" title="12月25日 - 最高速度20.2M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">12月25日 - 最高速度20.2M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-9-today-quantumult-x-node.htm" title="12月9日 - 最高速度19.7M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">12月9日 - 最高速度19.7M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-11-free-node-subscribe-links.htm" title="12月11日 - 最高速度22.7M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">12月11日 - 最高速度22.7M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">66</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div><!-- end container -->
+    </div><!-- end section -->
+    	    <div class="copyrights">
+        <div class="container">
+            <div class="footer-distributed">
+                <div class="footer-left">
+                    <p class="footer-company-name">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <a href="/">QuantumultX Node(圈X)官方节点站</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div><!-- end container -->
+    </div><!-- end copyrights -->
+    <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+    <!-- ALL JS FILES -->
+    <script src="/assets/website/js/frontend/quantumultxnode/all.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="/assets/website/js/frontend/quantumultxnode/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
