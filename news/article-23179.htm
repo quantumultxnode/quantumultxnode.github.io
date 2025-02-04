@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://quantumultxnode.github.io/news/article-23179.htm" />
@@ -11,6 +11,33 @@
     <title>Tomcat 部署 Web项目以及更改项目名</title>
         <meta name="description" content="Maven项目 选择父工程, 首先 clean 一下, 然后 package, 在当前文件夹的target 目录下就生成了一个war工程 . 我们把这个war工程 放到 tomcat的 webapps" />
         <link rel="icon" href="/assets/website/img/quantumultxnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="QuantumultX Node(圈X)官方节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://quantumultxnode.github.io/news/article-23179.htm" />
+    <meta property="og:site_name" content="QuantumultX Node(圈X)官方节点站" />
+    <meta property="og:title" content="Tomcat 部署 Web项目以及更改项目名" />
+    <meta property="og:image" content="https://quantumultxnode.github.io/uploads/20240726-1/4c0a58f158d2a81b10180d8e0b874890.webp" />
+        <meta property="og:release_date" content="2024-12-09T10:26:41" />
+    <meta property="og:updated_time" content="2024-12-09T10:26:41" />
+        <meta property="og:description" content="Maven项目 选择父工程, 首先 clean 一下, 然后 package, 在当前文件夹的target 目录下就生成了一个war工程 . 我们把这个war工程 放到 tomcat的 webapps" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Tomcat 部署 Web项目以及更改项目名">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/assets/website/css/quantumultxnode/bootstrap.min.css">
     <!-- Site CSS -->
@@ -135,7 +162,7 @@
                   				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> </h1> <ol> <li>Maven项目 选择父工程, 首先 clean 一下, 然后 package, 在当前文件夹的target 目录下就生成了一个war工程 .</li> <li>我们把这个war工程 放到 tomcat的 webapps 下, 然后通过 运行<code>startup.bat</code> tomcat会自动将war文件变成一个Web项目</li> <li>这时我们发现很烦的一个问题, 由于项目文件名的原因, 我们每次访问接口都得带上这家伙, 所以我们要甩掉项目名, 怎么做呢?</li> <li>在你的tomcat 所在文件夹的<code>conf\server.xml</code> 下修改一下</li> </ol> <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt; &lt;!-- 省略 --&gt;       &lt;Context docBase="F:\apache-tomcat-9.0.20\webapps\railway" path="/" reloadable="false" allowLinking="true" /&gt;     &lt;/Engine&gt;   &lt;/Service&gt; &lt;/Server&gt;</code></pre> <ol start="5"> <li>docBase = " " 配置项目的绝对路径 path= “/” 为空不用项目名, reloadable=“false” 如果这个属性设为true，tomcat服务器在运行状态下会监视在WEB-INF/classes和WEB-INF/lib目录下class文件的改动，如果监测到有class文件被更新的，服务器会自动重新加载Web应用 allowLinking=“true” 打开tomcat对软连接的支持</li> </ol> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-23178.htm">SpringBoot @Scheduled 读取配置文件获取cron值</a></p>
-                                        <p>下一个：<a href="/news/article-23637.htm">宠物粮食排名榜最新（宠物粮食排名榜最新）</a></p>
+                                        <p>下一个：<a href="/news/article-28286.htm">动物防疫疫苗数量统计表格图片大全（动物疫苗现状）</a></p>
                                     </div>
                                 </div>
                 <div class="col-md-3">
@@ -145,16 +172,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-11-18-quantumult-x-github.htm" title="11月18日 - 最高速度19.6M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">11月18日 - 最高速度19.6M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-26-latest-quantumult-x-node.htm" title="10月26日 - 最高速度21.4M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">10月26日 - 最高速度21.4M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-25-quantumult-x-node-github.htm" title="9月25日 - 最高速度19M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接">9月25日 - 最高速度19M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-8-quantumult-x-node-github.htm" title="10月8日 - 最高速度18.1M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接">10月8日 - 最高速度18.1M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-15-free-subscribe-node.htm" title="12月15日 - 最高速度22.6M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">12月15日 - 最高速度22.6M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-3-free-node-subscribe.htm" title="11月3日 - 最高速度22.2M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">11月3日 - 最高速度22.2M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-28-quantumult-x-node.htm" title="11月28日 - 最高速度20.2M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">11月28日 - 最高速度20.2M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-4-quantumult-x-node-github.htm" title="12月4日 - 最高速度19.7M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">12月4日 - 最高速度19.7M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
-                        <li class="py-2"><a href="/news/article-33491.htm" title="气象厅的人们:社内恋爱残酷史免费（万万没想到）">气象厅的人们:社内恋爱残酷史免费（万万没想到）</a></li>
-                        <li class="py-2"><a href="/news/article-32535.htm" title="win11系统UAC被禁用怎么解决">win11系统UAC被禁用怎么解决</a></li>
+                        <li class="py-2"><a href="/news/article-34442.htm" title="动物打了疫苗有什么用（动物打防疫针）">动物打了疫苗有什么用（动物打防疫针）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-12-quantumult-x-node.htm" title="12月12日 - 最高速度23M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">12月12日 - 最高速度23M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-36357.htm" title="襄阳流浪狗领养地址 襄阳流浪狗领养地址在哪里">襄阳流浪狗领养地址 襄阳流浪狗领养地址在哪里</a></li>
+                        <li class="py-2"><a href="/news/article-32054.htm" title="Vue3实现跑马灯效果_vue.js">Vue3实现跑马灯效果_vue.js</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-22-free-subscribe-node.htm" title="11月22日 - 最高速度20.1M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">11月22日 - 最高速度20.1M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-45745.htm" title="宠物粮厂家招聘最新信息 宠物粮厂家招聘最新信息网">宠物粮厂家招聘最新信息 宠物粮厂家招聘最新信息网</a></li>
+                        <li class="py-2"><a href="/news/article-24101.htm" title="南京领养猫咪要求（南京在哪领养猫）">南京领养猫咪要求（南京在哪领养猫）</a></li>
+                        <li class="py-2"><a href="/news/article-25486.htm" title="狗粮加盟店 狗粮加盟厂">狗粮加盟店 狗粮加盟厂</a></li>
+                        <li class="py-2"><a href="/news/article-26423.htm" title="面试题：NIO/Netty 中的零拷贝体现在哪里？">面试题：NIO/Netty 中的零拷贝体现在哪里？</a></li>
+                        <li class="py-2"><a href="/news/article-25958.htm" title="被猫咬了没有打针会不会致命（被猫咬了没打针会传染吗）">被猫咬了没有打针会不会致命（被猫咬了没打针会传染吗）</a></li>
                     </ul>
     </div>
 </div>
@@ -166,25 +193,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://quantumultxnode.github.io/news/article-23178.htm" />
@@ -11,6 +11,33 @@
     <title>SpringBoot @Scheduled 读取配置文件获取cron值</title>
         <meta name="description" content="1、在类上加注解@Component，交给Spring管理 2、在@PropertySource指定配置文件名称，如下配置，指定放在src/main/resource目录下的application.p" />
         <link rel="icon" href="/assets/website/img/quantumultxnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="QuantumultX Node(圈X)官方节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://quantumultxnode.github.io/news/article-23178.htm" />
+    <meta property="og:site_name" content="QuantumultX Node(圈X)官方节点站" />
+    <meta property="og:title" content="SpringBoot @Scheduled 读取配置文件获取cron值" />
+    <meta property="og:image" content="https://quantumultxnode.github.io/uploads/20240726-1/b68962c67c1174d0d408798b41764531.webp" />
+        <meta property="og:release_date" content="2024-12-09T10:26:41" />
+    <meta property="og:updated_time" content="2024-12-09T10:26:41" />
+        <meta property="og:description" content="1、在类上加注解@Component，交给Spring管理 2、在@PropertySource指定配置文件名称，如下配置，指定放在src/main/resource目录下的application.p" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="SpringBoot @Scheduled 读取配置文件获取cron值">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/assets/website/css/quantumultxnode/bootstrap.min.css">
     <!-- Site CSS -->
@@ -135,7 +162,7 @@
                   				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>1、在类上加注解@Component，交给Spring管理<br /> 2、在@PropertySource指定配置文件名称，如下配置，指定放在src/main/resource目录下的application.properties文件<br /> 3、配置文件application.properties参考内容如下</p> <pre><code class="prism language-xml">#每秒钟执行一次 cron=0/1 * * * * *</code></pre> <pre><code class="prism language-java"><span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>context<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>PropertySource<span class="token punctuation">;</span><span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>scheduling<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>Scheduled<span class="token punctuation">;</span><span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span>Component<span class="token punctuation">;</span><span class="token annotation punctuation">@Component</span><span class="token annotation punctuation">@PropertySource</span><span class="token punctuation">(</span><span class="token string">"classpath:/application.properties"</span><span class="token punctuation">)</span><span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">ScoreTask1</span><span class="token punctuation">{<!-- --></span><span class="token annotation punctuation">@Scheduled</span><span class="token punctuation">(</span>cron<span class="token operator">=</span><span class="token string">"${cron}"</span><span class="token punctuation">)</span><span class="token keyword">public</span><span class="token keyword">void</span><span class="token function">scoreTask</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"从配置文件读取cron表达式定时器"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <p>进一步衍生，可以把开发环境跟生产环境cron表达式做环境隔离，这样每次打包部署，系统自动执行配置文件cron表达式，减少手动修改代码次数。</p> <p>这里推荐一个在线生成cron表达式的工具<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://cron.qqe2.com/"  rel="nofollow">在线Cron表达式生成器</a><br /> 注意cron表达式只能配置6位参数，即 秒分时 日月周，有时候生成器会生成7位参数，这样在java代码执行会报错的</p> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-22712.htm">动物疫苗要打几针才有效果呢（动物疫苗打一次管多长时间）</a></p>
-                                        <p>下一个：<a href="/news/article-23179.htm">Tomcat 部署 Web项目以及更改项目名</a></p>
+                                        <p>下一个：<a href="/news/article-28286.htm">动物防疫疫苗数量统计表格图片大全（动物疫苗现状）</a></p>
                                     </div>
                                 </div>
                 <div class="col-md-3">
@@ -145,16 +172,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-12-12-quantumult-x-node.htm" title="12月12日 - 最高速度23M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">12月12日 - 最高速度23M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-24-free-high-speed-nodes.htm" title="8月24日 - 最高速度18.5M/S，2024年QuantumultX每天更新免费节点订阅链接">8月24日 - 最高速度18.5M/S，2024年QuantumultX每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-26423.htm" title="面试题：NIO/Netty 中的零拷贝体现在哪里？">面试题：NIO/Netty 中的零拷贝体现在哪里？</a></li>
-                        <li class="py-2"><a href="/news/article-33964.htm" title="流浪猫认主的表现（流浪猫认主的表现是什么）">流浪猫认主的表现（流浪猫认主的表现是什么）</a></li>
-                        <li class="py-2"><a href="/news/article-30155.htm" title="上海宠物医院有多少家（上海宠物医院前十名）">上海宠物医院有多少家（上海宠物医院前十名）</a></li>
-                        <li class="py-2"><a href="/news/article-28286.htm" title="动物防疫疫苗数量统计表格图片大全（动物疫苗现状）">动物防疫疫苗数量统计表格图片大全（动物疫苗现状）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-18-free-node-subscribe-links.htm" title="12月18日 - 最高速度20.5M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">12月18日 - 最高速度20.5M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-12-free-node-subscribe-links.htm" title="8月12日 - 最高速度19.2M/S，2024年QuantumultX每天更新免费节点订阅链接">8月12日 - 最高速度19.2M/S，2024年QuantumultX每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-20434.htm" title="宠物粮食批发市场在哪 宠物粮食批发市场在哪里">宠物粮食批发市场在哪 宠物粮食批发市场在哪里</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-2-free-high-speed-nodes.htm" title="10月2日 - 最高速度18.3M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接">10月2日 - 最高速度18.3M/S，2024年QuantumultX(圈X)每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-30-free-node-subscribe.htm" title="11月30日 - 最高速度21.9M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">11月30日 - 最高速度21.9M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-26886.htm" title="女人为什么不能养金毛（德牧金毛哪个乱尽两而好养）">女人为什么不能养金毛（德牧金毛哪个乱尽两而好养）</a></li>
+                        <li class="py-2"><a href="/news/article-20884.htm" title="领养宠物须知图片大全（领养宠物需要什么条件和费用）">领养宠物须知图片大全（领养宠物需要什么条件和费用）</a></li>
+                        <li class="py-2"><a href="/news/article-22258.htm" title="打完疫苗能吃内脏嘛（打完疫苗可以吃内脏嘛）">打完疫苗能吃内脏嘛（打完疫苗可以吃内脏嘛）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-24-free-node-subscribe-links.htm" title="11月24日 - 最高速度19.2M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">11月24日 - 最高速度19.2M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-27-quantumult-x-node-share.htm" title="12月27日 - 最高速度20.6M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">12月27日 - 最高速度20.6M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-9-latest-quantumult-x-node.htm" title="11月9日 - 最高速度19.1M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">11月9日 - 最高速度19.1M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-44749.htm" title="动物疫苗接种途径有哪些类型的（动物疫苗接种方法及注意事项）">动物疫苗接种途径有哪些类型的（动物疫苗接种方法及注意事项）</a></li>
+                        <li class="py-2"><a href="/news/article-25485.htm" title="Java判断字符串是否为null的equals的正确用法">Java判断字符串是否为null的equals的正确用法</a></li>
+                        <li class="py-2"><a href="/news/article-22712.htm" title="动物疫苗要打几针才有效果呢（动物疫苗打一次管多长时间）">动物疫苗要打几针才有效果呢（动物疫苗打一次管多长时间）</a></li>
                     </ul>
     </div>
 </div>
@@ -166,25 +193,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

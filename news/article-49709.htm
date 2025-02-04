@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://quantumultxnode.github.io/news/article-49709.htm" />
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ElasticSearch8 SpringBoot集成ElasticSearch8.x 基本应用 CRUD操作 环境安装详细步骤</title>
+        <meta name="description" content="最近在研究es的时候发现官方已经在7.15.0放弃对旧版本中的Java REST Client （High Level Rest Client (HLRC)）的支持，从而替换为推荐使用的Java AP" />
+        <link rel="icon" href="/assets/website/img/quantumultxnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="QuantumultX Node(圈X)官方节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://quantumultxnode.github.io/news/article-49709.htm" />
+    <meta property="og:site_name" content="QuantumultX Node(圈X)官方节点站" />
+    <meta property="og:title" content="ElasticSearch8 SpringBoot集成ElasticSearch8.x 基本应用 CRUD操作 环境安装详细步骤" />
+    <meta property="og:image" content="https://quantumultxnode.github.io/uploads/20240726-1/997d5f14378568c70966eef2db3a44e2.webp" />
+        <meta property="og:release_date" content="2025-02-02T09:25:15" />
+    <meta property="og:updated_time" content="2025-02-02T09:25:15" />
+        <meta property="og:description" content="最近在研究es的时候发现官方已经在7.15.0放弃对旧版本中的Java REST Client （High Level Rest Client (HLRC)）的支持，从而替换为推荐使用的Java AP" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="ElasticSearch8 SpringBoot集成ElasticSearch8.x 基本应用 CRUD操作 环境安装详细步骤">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/bootstrap.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/style.css">
+    <!-- Colors CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/colors.css">
+    <!-- ALL VERSION CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/versions.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/custom.css">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HT2LRJJHKV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HT2LRJJHKV');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body class="seo_version" data-page="detail">
+    <!-- LOADER -->
+    <div id="preloader">
+        <div id="cupcake" class="box">
+            <span class="letter">L</span>
+            <div class="cupcakeCircle box">
+                <div class="cupcakeInner box">
+                    <div class="cupcakeCore box"></div>
+                </div>
+            </div>
+            <span class="letter box">A</span>
+            <span class="letter box">D</span>
+            <span class="letter box">I</span>
+            <span class="letter box">N</span>
+            <span class="letter box">G</span>
+        </div>
+    </div>
+    <!-- END LOADER -->
+    <header class="header header_style_01">
+        <nav class="megamenu navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">
+                                        <span>QuantumultX Node</span>
+                                        </a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right menu-top">
+                                                <li><a href="/">首页</a></li>
+                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                <li><a href="/news/">新闻资讯</a></li>
+                                                <li><a href="#">关于</a></li>
+                        <li><a href="#">联系</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="all-page-title" style="background-image:url(images/pattern-4.png);">
+        <div class="container text-center">
+            <h1>ElasticSearch8 SpringBoot集成ElasticSearch8.x 基本应用 CRUD操作 环境安装详细步骤</h1>
+        </div>
+        <!--Page -->
+        <div class="page-info">
+            <div class="container">
+                <div class="inner-container">
+                    <ul class="bread-crumb">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li><span>正文</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--End Page-->
+    </div><!-- end section -->
+    <svg id="clouds" class="hidden-xs" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 85 100" preserveAspectRatio="none">
+        <path d="M-5 100 Q 0 20 5 100 Z
+            M0 100 Q 5 0 10 100
+            M5 100 Q 10 30 15 100
+            M10 100 Q 15 10 20 100
+            M15 100 Q 20 30 25 100
+            M20 100 Q 25 -10 30 100
+            M25 100 Q 30 10 35 100
+            M30 100 Q 35 30 40 100
+            M35 100 Q 40 10 45 100
+            M40 100 Q 45 50 50 100
+            M45 100 Q 50 20 55 100
+            M50 100 Q 55 40 60 100
+            M55 100 Q 60 60 65 100
+            M60 100 Q 65 50 70 100
+            M65 100 Q 70 20 75 100
+            M70 100 Q 75 45 80 100
+            M75 100 Q 80 30 85 100
+            M80 100 Q 85 20 90 100
+            M85 100 Q 90 50 95 100
+            M90 100 Q 95 25 100 100
+            M95 100 Q 100 15 105 100 Z">
+        </path>
+    </svg>
+    <div id="about" class="section wb nopadtop">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> </h1> <p>最近在研究es的时候发现官方已经在7.15.0放弃对旧版本中的Java REST Client （High Level Rest Client (HLRC)）的支持，从而替换为推荐使用的Java API Client 8.x</p> <p><img fetchpriority="high" decoding="async" alt="" height="306" src="http://img.555519.xyz/uploads3/20220602/b4d037c4b670590014001a652302b12c.jpg"></p> <p>查看SpringBoot2.6.4的依赖，其中es的版本仅为7.15.2</p> <pre><code>  &lt;dependency&gt;         &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;         &lt;artifactId&gt;spring-boot-starter-data-elasticsearch&lt;/artifactId&gt;   &lt;/dependency&gt;    &lt;elasticsearch&gt;7.15.2&lt;/elasticsearch&gt;</code></pre> <p>因此这里我就按照官方文档使用了推荐的</p> <pre><code>&lt;dependency&gt;       &lt;groupId&gt;co.elastic.clients&lt;/groupId&gt;       &lt;artifactId&gt;elasticsearch-java&lt;/artifactId&gt;       &lt;version&gt;8.1.0&lt;/version&gt; &lt;/dependency&gt;</code></pre> <p>鉴于es8.x的资料文档目前并不是很齐全，本文中如有错误，欢迎各位指出。本文将记录一些es8.x api下的简单CRUD操作。</p> </h1> <p>SpringBoot 2.6.4 + ElasticSearch 8.1.0</p> </h1> <p>首先去官网下载最新的安装包<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.elastic.co/cn/downloads/elasticsearch"  title="Download Elasticsearch | Elastic" rel="nofollow">Download Elasticsearch | Elastic</a></p> <p><img decoding="async" alt="" height="626" src="http://img.555519.xyz/uploads3/20220602/4f5d9416bba66282cad890151ea93442.jpg"></p> <p>解压即可，进入/bin,启动elasticsearch.bat</p> <p>访问 127.0.0.1:9200,出现es的集群信息即安装成功</p> <h2>可视化界面elasticsearch-head安装</h2> <p>在github上搜索elasticsearch-head，下载他的源码</p> <p>进入源码目录执行（需安装Node.js）</p> <pre><code class="language-bash">npm install npm run start  Running "connect:server" (connect) task                                                                                  Waiting forever...                                                                                                       Started connect web server on http://localhost:9100</code></pre> <p>即可访问9100端口访问</p> <p><img decoding="async" alt="" height="266" src="http://img.555519.xyz/uploads3/20220602/39b3e8a7bf1fa9a0a9d6b8e7024f2231.jpg"></p> </h1> <pre><code class="language-XML">  &lt;dependency&gt;         &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;         &lt;artifactId&gt;jackson-databind&lt;/artifactId&gt;         &lt;version&gt;2.13.2&lt;/version&gt;   &lt;/dependency&gt;    &lt;dependency&gt;         &lt;groupId&gt;org.glassfish&lt;/groupId&gt;         &lt;artifactId&gt;jakarta.json&lt;/artifactId&gt;         &lt;version&gt;2.0.1&lt;/version&gt;   &lt;/dependency&gt;           &lt;dependency&gt;         &lt;groupId&gt;co.elastic.clients&lt;/groupId&gt;         &lt;artifactId&gt;elasticsearch-java&lt;/artifactId&gt;         &lt;version&gt;8.1.0&lt;/version&gt;   &lt;/dependency&gt;</code></pre> </h1> <pre><code class="language-java">@Configuration public class ElasticSearchConfig {      //注入IOC容器     @Bean     public ElasticsearchClient elasticsearchClient(){         RestClient client = RestClient.builder(new HttpHost("localhost", 9200,"http")).build();         ElasticsearchTransport transport = new RestClientTransport(client,new JacksonJsonpMapper());         return new ElasticsearchClient(transport);     } }</code></pre> </h1> <h2>增加index</h2> <pre><code class="language-java">  @Autowired   private ElasticsearchClient client;      @Test     public void createTest() throws IOException {                  //写法比RestHighLevelClient更加简洁         CreateIndexResponse indexResponse = client.indices().create(c -&gt; c.index("user"));     }</code></pre> <h2>查询Index</h2> <pre><code class="language-java">    @Test     public void queryTest() throws IOException {         GetIndexResponse getIndexResponse = client.indices().get(i -&gt; i.index("user"));     }</code></pre> <h2>&nbsp;判断index是否存在</h2> <pre><code class="language-java">    @Test     public void existsTest() throws IOException {         BooleanResponse booleanResponse = client.indices().exists(e -&gt; e.index("user"));         System.out.println(booleanResponse.value());     }</code></pre> <h2>删除index</h2> <pre><code class="language-java">@Test     public void deleteTest() throws IOException {         DeleteIndexResponse deleteIndexResponse = client.indices().delete(d -&gt; d.index("user"));         System.out.println(deleteIndexResponse.acknowledged());     }</code></pre> </h1> <p>这里准备了一个简单的实体类User用于测试</p> <pre><code class="language-java">@Data @AllArgsConstructor @NoArgsConstructor public class User {     private String name;     private Integer age; }</code></pre> <h2>插入document</h2> <pre><code class="language-java">    @Test     public void addDocumentTest() throws IOException {          User user = new User("user1", 10);         IndexResponse indexResponse = client.index(i -&gt; i                 .index("user")                  //设置id                 .id("1")                  //传入user对象                 .document(user));      }</code></pre> <p>进入可视化插件，可以看到数据已经成功插入</p> <p><img loading="lazy" decoding="async" alt="" height="353" src="http://img.555519.xyz/uploads3/20220602/7e684e622ce25592b865e95bc30b2e30.jpg"></p> <h2>&nbsp;更新Document</h2> <pre><code class="language-java">    @Test     public void updateDocumentTest() throws IOException {         UpdateResponse&lt;User&gt; updateResponse = client.update(u -&gt; u                         .index("user")                         .id("1")                         .doc(new User("user2", 13))                 , User.class);     }</code></pre> <h2>判断Document是否存在</h2> <pre><code class="language-java">    @Test     public void existDocumentTest() throws IOException {         BooleanResponse indexResponse = client.exists(e -&gt; e.index("user").id("1"));         System.out.println(indexResponse.value());     }</code></pre> <h2>查询Document</h2> <pre><code class="language-java">    @Test     public void getDocumentTest() throws IOException {         GetResponse&lt;User&gt; getResponse = client.get(g -&gt; g                         .index("user")                         .id("1")                 , User.class         );         System.out.println(getResponse.source());     }</code></pre> <p>返回</p> <pre><code>User(name=user2, age=13)</code></pre> <h2>删除Document</h2> <pre><code class="language-java">    @Test     public void deleteDocumentTest() throws IOException {         DeleteResponse deleteResponse = client.delete(d -&gt; d                 .index("user")                 .id("1")         );         System.out.println(deleteResponse.id());     }</code></pre> <h2>批量插入Document</h2> <pre><code class="language-java">    @Test     public void bulkTest() throws IOException {         List&lt;User&gt; userList = new ArrayList&lt;&gt;();         userList.add(new User("user1", 11));         userList.add(new User("user2", 12));         userList.add(new User("user3", 13));         userList.add(new User("user4", 14));         userList.add(new User("user5", 15));         List&lt;BulkOperation&gt; bulkOperationArrayList = new ArrayList&lt;&gt;();         //遍历添加到bulk中         for(User user : userList){             bulkOperationArrayList.add(BulkOperation.of(o-&gt;o.index(i-&gt;i.document(user))));         }               BulkResponse bulkResponse = client.bulk(b -&gt; b.index("user")                 .operations(bulkOperationArrayList));      }</code></pre> <p><img loading="lazy" decoding="async" alt="" height="291" src="http://img.555519.xyz/uploads3/20220602/82970c783903a8fead3cb6c5c3121af9.jpg"></p> </h1> <pre><code class="language-java">    @Test     public void searchTest() throws IOException {         SearchResponse&lt;User&gt; search = client.search(s -&gt; s                 .index("user")                 //查询name字段包含hello的document(不使用分词器精确查找)                 .query(q -&gt; q                         .term(t -&gt; t                                 .field("name")                                 .value(v -&gt; v.stringValue("hello"))                         ))                 //分页查询，从第0页开始查询3个document                 .from(0)                 .size(3)                 //按age降序排序                 .sort(f-&gt;f.field(o-&gt;o.field("age").order(SortOrder.Desc))),User.class         );         for (Hit&lt;User&gt; hit : search.hits().hits()) {             System.out.println(hit.source());         }     }</code></pre> <p>为了测试，我们先添加以下数据</p> <pre><code class="language-java">        List&lt;User&gt; userList = new ArrayList&lt;&gt;();         userList.add(new User("hello world", 11));         userList.add(new User("hello java", 12));         userList.add(new User("hello es", 13));         userList.add(new User("hello spring", 14));         userList.add(new User("user", 15));</code></pre> <p>查询结果：</p> <pre><code>User(name=hello spring, age=14) User(name=hello es, age=13) User(name=hello java, age=12)</code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-49200.htm">动物疫苗接种时间表最新查询官网 动物疫苗接种时间表最新查询官网下载</a></p>
+                                        <p>下一个：<a href="/news/article-49710.htm">养猫是不是对人不好（养猫对人有什么影响吗）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-11-free-node-subscribe-links.htm" title="1月11日 - 最高速度19.3M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">1月11日 - 最高速度19.3M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-3-node-share.htm" title="1月3日 - 最高速度21.3M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">1月3日 - 最高速度21.3M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-21802.htm" title="动物疫苗行业排名前十名 动物疫苗行业排名前十名有哪些">动物疫苗行业排名前十名 动物疫苗行业排名前十名有哪些</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-31-today-quantumult-x-node.htm" title="1月31日 - 最高速度21.6M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">1月31日 - 最高速度21.6M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-44749.htm" title="动物疫苗接种途径有哪些类型的（动物疫苗接种方法及注意事项）">动物疫苗接种途径有哪些类型的（动物疫苗接种方法及注意事项）</a></li>
+                        <li class="py-2"><a href="/news/article-19061.htm" title="一文弄懂Spring Boot应用分层构建Docker Image镜像">一文弄懂Spring Boot应用分层构建Docker Image镜像</a></li>
+                        <li class="py-2"><a href="/news/article-38297.htm" title="java基础之Collections比较对象">java基础之Collections比较对象</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-2-quantumult-x-node-windows.htm" title="12月2日 - 最高速度19.8M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">12月2日 - 最高速度19.8M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-31103.htm" title="动物防疫站（广州动物防疫站）">动物防疫站（广州动物防疫站）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-20-free-subscribe-node.htm" title="12月20日 - 最高速度19M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">12月20日 - 最高速度19M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div><!-- end container -->
+    </div><!-- end section -->
+    	    <div class="copyrights">
+        <div class="container">
+            <div class="footer-distributed">
+                <div class="footer-left">
+                    <p class="footer-company-name">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <a href="/">QuantumultX Node(圈X)官方节点站</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div><!-- end container -->
+    </div><!-- end copyrights -->
+    <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+    <!-- ALL JS FILES -->
+    <script src="/assets/website/js/frontend/quantumultxnode/all.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="/assets/website/js/frontend/quantumultxnode/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
