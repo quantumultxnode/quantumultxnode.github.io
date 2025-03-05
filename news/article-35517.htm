@@ -95,19 +95,18 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                                        <a class="navbar-brand" href="/">
-                        Quantumult X Node
-                    </a>
-                                    </div>
+                    <a class="navbar-brand" href="/">
+                                        <span>QuantumultX Node</span>
+                                        </a>
+                </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right menu-top">
                                                 <li><a href="/">首页</a></li>
                                                 <li><a href="/free-nodes/">免费节点</a></li>
                                                 <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                <li><a href="/client.htm">客户端</a></li>
                                                 <li><a href="/news/">新闻资讯</a></li>
-                                                <li><a href="#">关于</a></li>
-                        <li><a href="#">联系</a></li>
-                    </ul>
+                                            </ul>
                 </div>
             </div>
         </nav>
@@ -161,7 +160,6 @@
                                     <input type="hidden" id="share-website-info" data-name="" data-url="">
                   				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">vue当前页push当前页无效</a></li> <li><a href="#_label1" rel="nofollow">vue push报错</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_1_0" rel="nofollow">TypeError: Cannot read property ‘push‘ of undefined</a></li> <li><a href="#_lab2_1_1" rel="nofollow">解决方法</a></li> </ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>vue当前页push当前页无效</h2> <p>当在当前页面中push页面跳转当前页，只是push的参数不同时，只能用字符串拼接，parames和query都不会起作用。不知道为什么。。。</p> <p>比如说：当前页的url是</p> <div class="ay1code"> <pre class="brush:js;">/invest/myinvest?page=1&amp;day=0-30`</pre> </div> <p>但是想点击的时候改变参数，所以就</p> <div class="ay1code"> <pre class="brush:js;">this.$router.push({path:'/invest/myinvest?',query:{page:1,day:'0-30'}})</pre> </div> <p>然而并无卵用。。。。</p> <p>只能：</p> <div class="ay1code"> <pre class="brush:js;">this.$router.push("/invest/myinvest?page="+currentPage+"&amp;day="day);</pre> </div> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>vue push报错</h2> <p class="maodian"><a name="_lab2_1_0" rel="nofollow"></a></p> <h3>TypeError: Cannot read property ‘push‘ of undefined</h3> <div class="ay1code"> <pre class="brush:js;">axios.post('/processing/', {})       .then(function (response) {         console.log(response.data);         if (response.data == 'no_processing') {           alert("文章分析失败！");           return;         }else if(response.data=='empty_processing'){           alert("文章数据为空，无法分析！")           return;         }         response.data.forEach(function(element){            this.processing_tableData.push(element);  //“push”报错            console.log(element);          });         console.log("ok_processing")       })       .catch(function (error) {         console.log(error);       })  </pre> </div> <p>报错：</p> <blockquote> <p>TypeError: Cannot read property ‘push’ of undefined</p> </blockquote> <p class="maodian"><a name="_lab2_1_1" rel="nofollow"></a></p> <h3>解决方法</h3> <p>在外部定义一个值指代Vue实例</p> <div class="ay1code"> <pre class="brush:js;">var self = this; //外部定义  axios.post('/processing/', {})       .then(function (response) {         console.log(response.data);         if (response.data == 'no_processing') {           alert("文章分析失败！");           return;         }else if(response.data=='empty_processing'){           alert("文章数据为空，无法分析！")           return;         }         response.data.forEach(function(element){            self.processing_tableData.push(element);  //把“this”=》“self”            console.log(element);          });         console.log("ok_processing")       })       .catch(function (error) {         console.log(error);       })  </pre> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
-                                        <p>上一个：<a href="/news/article-34997.htm">动物疫苗的种类有哪些名称图片大全集（动物疫苗的类型）</a></p>
                                         <p>下一个：<a href="/news/article-35518.htm">宠物粮食创业计划书怎么写（宠物粮行业环境分析）</a></p>
                                     </div>
                                 </div>
@@ -172,16 +170,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-36356.htm" title="Blazor WebAssembly 渐进式 Web 应用程序 (PWA) 离线处理数据">Blazor WebAssembly 渐进式 Web 应用程序 (PWA) 离线处理数据</a></li>
-                        <li class="py-2"><a href="/news/article-21345.htm" title="兽医防疫简报范文（兽医开展工作简报）">兽医防疫简报范文（兽医开展工作简报）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-25-free-quantumult-x-node.htm" title="11月25日 - 最高速度21.4M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">11月25日 - 最高速度21.4M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
-                        <li class="py-2"><a href="/news/article-19061.htm" title="一文弄懂Spring Boot应用分层构建Docker Image镜像">一文弄懂Spring Boot应用分层构建Docker Image镜像</a></li>
-                        <li class="py-2"><a href="/news/article-21801.htm" title="经营动物疫苗需要什么资质（动物疫苗经营许可）">经营动物疫苗需要什么资质（动物疫苗经营许可）</a></li>
-                        <li class="py-2"><a href="/news/article-33491.htm" title="气象厅的人们:社内恋爱残酷史免费（万万没想到）">气象厅的人们:社内恋爱残酷史免费（万万没想到）</a></li>
-                        <li class="py-2"><a href="/news/article-30627.htm" title="人跟狗打的狂犬疫苗一样吗 人跟狗打的狂犬疫苗一样吗多少钱">人跟狗打的狂犬疫苗一样吗 人跟狗打的狂犬疫苗一样吗多少钱</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-23-free-quantumult-x-node.htm" title="1月23日 - 最高速度22M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">1月23日 - 最高速度22M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-24-quantumult-x-node-windows.htm" title="12月24日 - 最高速度19.1M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">12月24日 - 最高速度19.1M/S，2024年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
-                        <li class="py-2"><a href="/news/article-30154.htm" title="被猫抓伤出血没***会传染吗（被猫抓出血了没***会传染吗）">被猫抓伤出血没***会传染吗（被猫抓出血了没***会传染吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-6-free-high-speed-nodes.htm" title="2月6日 - 最高速度22.2M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">2月6日 - 最高速度22.2M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-42262.htm" title="成都宠物物流托运价格（成都宠物物流托运价格多少）">成都宠物物流托运价格（成都宠物物流托运价格多少）</a></li>
+                        <li class="py-2"><a href="/news/article-57270.htm" title=".NET宝藏API之：IHostedService，后台任务执行">.NET宝藏API之：IHostedService，后台任务执行</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-16-quantumult-x-node.htm" title="2月16日 - 最高速度22.6M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">2月16日 - 最高速度22.6M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-52326.htm" title="动物医院英语短语怎么说怎么写 动物医院英语短语怎么说怎么写的">动物医院英语短语怎么说怎么写 动物医院英语短语怎么说怎么写的</a></li>
+                        <li class="py-2"><a href="/news/article-56705.htm" title="动物疫苗厂家查询系统（动物疫苗批签发查询）">动物疫苗厂家查询系统（动物疫苗批签发查询）</a></li>
+                        <li class="py-2"><a href="/news/article-60723.htm" title="宠物医院社会实践心得（宠物医院实践活动总结）">宠物医院社会实践心得（宠物医院实践活动总结）</a></li>
+                        <li class="py-2"><a href="/news/article-55030.htm" title="合肥宠物店收狗吗（合肥宠物店收狗吗多少钱）">合肥宠物店收狗吗（合肥宠物店收狗吗多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-56704.htm" title="湖北宠物店城管打人（宠物店举报电话多少）">湖北宠物店城管打人（宠物店举报电话多少）</a></li>
+                        <li class="py-2"><a href="/news/article-57271.htm" title="动物疫苗的正确使用方法有哪些图片及价格（动物疫苗的正确使用方法有哪些图片及价格视频）">动物疫苗的正确使用方法有哪些图片及价格（动物疫苗的正确使用方法有哪些图片及价格视频）</a></li>
                     </ul>
     </div>
 </div>
@@ -193,16 +191,13 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+                <h4><span class="badge" style="float: right;">83</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                     </ul>
     </div>
