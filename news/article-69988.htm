@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://quantumultxnode.github.io/news/article-69988.htm" />
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Java 面试之线程与锁</title>
+        <meta name="description" content="  进程是操作系统分配资源的最小单元，线程是操作系统调度的最小单元。一个进程一般包括多个线程，这些线程共享本进程的内存和资源。  线程的状态   实现线程的几种方式  继承Thread类创建线程 实现" />
+        <link rel="icon" href="/assets/website/img/quantumultxnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="QuantumultX Node(圈X)官方节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://quantumultxnode.github.io/news/article-69988.htm" />
+    <meta property="og:site_name" content="QuantumultX Node(圈X)官方节点站" />
+    <meta property="og:title" content="Java 面试之线程与锁" />
+    <meta property="og:image" content="https://quantumultxnode.github.io/uploads/20240726-1/1570731339d2b1dc338dbb93fe6f19fc.webp" />
+        <meta property="og:release_date" content="2025-03-09T09:42:50" />
+    <meta property="og:updated_time" content="2025-03-09T09:42:50" />
+        <meta property="og:description" content="  进程是操作系统分配资源的最小单元，线程是操作系统调度的最小单元。一个进程一般包括多个线程，这些线程共享本进程的内存和资源。  线程的状态   实现线程的几种方式  继承Thread类创建线程 实现" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Java 面试之线程与锁">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/bootstrap.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/style.css">
+    <!-- Colors CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/colors.css">
+    <!-- ALL VERSION CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/versions.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/custom.css">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HT2LRJJHKV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HT2LRJJHKV');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body class="seo_version" data-page="detail">
+    <!-- LOADER -->
+    <div id="preloader">
+        <div id="cupcake" class="box">
+            <span class="letter">L</span>
+            <div class="cupcakeCircle box">
+                <div class="cupcakeInner box">
+                    <div class="cupcakeCore box"></div>
+                </div>
+            </div>
+            <span class="letter box">A</span>
+            <span class="letter box">D</span>
+            <span class="letter box">I</span>
+            <span class="letter box">N</span>
+            <span class="letter box">G</span>
+        </div>
+    </div>
+    <!-- END LOADER -->
+    <header class="header header_style_01">
+        <nav class="megamenu navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">
+                                        <span>QuantumultX Node</span>
+                                        </a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right menu-top">
+                                                <li><a href="/">首页</a></li>
+                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                <li><a href="/client.htm">客户端</a></li>
+                                                <li><a href="/news/">新闻资讯</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="all-page-title" style="background-image:url(images/pattern-4.png);">
+        <div class="container text-center">
+            <h1>Java 面试之线程与锁</h1>
+        </div>
+        <!--Page -->
+        <div class="page-info">
+            <div class="container">
+                <div class="inner-container">
+                    <ul class="bread-crumb">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li><span>正文</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--End Page-->
+    </div><!-- end section -->
+    <svg id="clouds" class="hidden-xs" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 85 100" preserveAspectRatio="none">
+        <path d="M-5 100 Q 0 20 5 100 Z
+            M0 100 Q 5 0 10 100
+            M5 100 Q 10 30 15 100
+            M10 100 Q 15 10 20 100
+            M15 100 Q 20 30 25 100
+            M20 100 Q 25 -10 30 100
+            M25 100 Q 30 10 35 100
+            M30 100 Q 35 30 40 100
+            M35 100 Q 40 10 45 100
+            M40 100 Q 45 50 50 100
+            M45 100 Q 50 20 55 100
+            M50 100 Q 55 40 60 100
+            M55 100 Q 60 60 65 100
+            M60 100 Q 65 50 70 100
+            M65 100 Q 70 20 75 100
+            M70 100 Q 75 45 80 100
+            M75 100 Q 80 30 85 100
+            M80 100 Q 85 20 90 100
+            M85 100 Q 90 50 95 100
+            M90 100 Q 95 25 100 100
+            M95 100 Q 100 15 105 100 Z">
+        </path>
+    </svg>
+    <div id="about" class="section wb nopadtop">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night-eighties"> </h1> <p>  <strong>进程是操作系统分配资源的最小单元，线程是操作系统调度的最小单元</strong>。一个进程一般包括多个线程，这些线程共享本进程的内存和资源。</p> <h2> <a id="_2" rel="nofollow"></a>线程的状态</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230119/00cd5f7a03444a112b7a78257aacba99.jpg" alt="Java 面试之线程与锁"></p> <h2> <a id="_4" rel="nofollow"></a>实现线程的几种方式</h2> <ul> <li>继承Thread类创建线程</li> <li>实现Runnable接口创建线程</li> <li>实现Callable接口创建新线程(可用Future返回结果)</li> </ul> <h2> <a id="ThreadLocal_9" rel="nofollow"></a>ThreadLocal</h2> <p>  设计理念是为了减少同一个线程内多个函数或者组件之间一些公共变量的传递的复杂度。作用是提供线程内部的局部变量，这些变量在多线程环境下访问(get/set)时能保证与其它线程里的变量相对独立。打个比方，多人(多个线程)使用自己的交通卡(线程私有变量)乘公交转地铁(两个函数)。<br />   注意：使用 ThreadLocal 时要保证能够管理它的创建、销毁，否则会出问题。因为 ThreadLocal 是和 Thread 绑定的，如果 Thread 是从 ThreadPool 中拿出来的，那么意味着 Thread 可能会被复用。如果被复用，你就一定得保证这个 Thread 上一次结束的时候，其关联的 ThreadLocal 被清空掉，否则就会串到下一次使用。</p> <blockquote></blockquote></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-69340.htm">国内最大的狗粮批发市场在哪里进货（国内大型的狗粮厂在哪里）</a></p>
+                                        <p>下一个：<a href="/news/article-69990.htm">中国动物疫苗市场现状 中国动物疫苗市场现状分析</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-40275.htm" title="一文搞懂js中的typeof用法_在线工具">一文搞懂js中的typeof用法_在线工具</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-26-node-share.htm" title="1月26日 - 最高速度22.8M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">1月26日 - 最高速度22.8M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-57837.htm" title="上海动物防疫站打疫苗时间（上海动物疫苗控制中心）">上海动物防疫站打疫苗时间（上海动物疫苗控制中心）</a></li>
+                        <li class="py-2"><a href="/news/article-53390.htm" title="中国宠物粮市场规模 中国宠物粮市场规模排名">中国宠物粮市场规模 中国宠物粮市场规模排名</a></li>
+                        <li class="py-2"><a href="/news/article-54483.htm" title="动物疫苗合格证怎么办理手续图片（动物疫苗证书）">动物疫苗合格证怎么办理手续图片（动物疫苗证书）</a></li>
+                        <li class="py-2"><a href="/news/article-61302.htm" title="销售兽用疫苗处罚规定是什么（销售兽用疫苗处罚规定是什么内容）">销售兽用疫苗处罚规定是什么（销售兽用疫苗处罚规定是什么内容）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-26-node-share.htm" title="2月26日 - 最高速度19.3M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">2月26日 - 最高速度19.3M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-51794.htm" title="SpringBoot 起步依赖+SpringBoot配置">SpringBoot 起步依赖+SpringBoot配置</a></li>
+                        <li class="py-2"><a href="/news/article-66793.htm" title="动物医院贵吗多少钱一次 动物医院贵吗多少钱一次啊">动物医院贵吗多少钱一次 动物医院贵吗多少钱一次啊</a></li>
+                        <li class="py-2"><a href="/news/article-51270.htm" title="pytorch报错  ConvTranspose1d object has no attribute padding_mode">pytorch报错  ConvTranspose1d object has no attribute padding_mode</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">83</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div><!-- end container -->
+    </div><!-- end section -->
+    	    <div class="copyrights">
+        <div class="container">
+            <div class="footer-distributed">
+                <div class="footer-left">
+                    <p class="footer-company-name">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <a href="/">QuantumultX Node(圈X)官方节点站</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div><!-- end container -->
+    </div><!-- end copyrights -->
+    <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+    <!-- ALL JS FILES -->
+    <script src="/assets/website/js/frontend/quantumultxnode/all.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="/assets/website/js/frontend/quantumultxnode/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
