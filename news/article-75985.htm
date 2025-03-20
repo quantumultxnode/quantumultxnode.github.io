@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://quantumultxnode.github.io/news/article-75985.htm" />
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>mysql数据库锁MDL锁的解释_在线工具</title>
+        <meta name="description" content="在我们系统中有一张表它的查询概率非常高。最近有个需求，需要对这个表增加一个字段，然而在增加字段的时候发现系统中有多个业务出现了超时操作，那么这个是什么原因导致的呢？经过查阅资料发现是数据库的MDL锁+" />
+        <link rel="icon" href="/assets/website/img/quantumultxnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="QuantumultX Node(圈X)官方节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://quantumultxnode.github.io/news/article-75985.htm" />
+    <meta property="og:site_name" content="QuantumultX Node(圈X)官方节点站" />
+    <meta property="og:title" content="mysql数据库锁MDL锁的解释_在线工具" />
+    <meta property="og:image" content="https://quantumultxnode.github.io/uploads/20240726-1/d5d83c97f65cb33376ad7a58860d4c59.webp" />
+        <meta property="og:release_date" content="2025-03-18T06:11:00" />
+    <meta property="og:updated_time" content="2025-03-18T06:11:00" />
+        <meta property="og:description" content="在我们系统中有一张表它的查询概率非常高。最近有个需求，需要对这个表增加一个字段，然而在增加字段的时候发现系统中有多个业务出现了超时操作，那么这个是什么原因导致的呢？经过查阅资料发现是数据库的MDL锁+" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="mysql数据库锁MDL锁的解释_在线工具">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/bootstrap.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/style.css">
+    <!-- Colors CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/colors.css">
+    <!-- ALL VERSION CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/versions.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/custom.css">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HT2LRJJHKV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HT2LRJJHKV');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body class="seo_version" data-page="detail">
+    <!-- LOADER -->
+    <div id="preloader">
+        <div id="cupcake" class="box">
+            <span class="letter">L</span>
+            <div class="cupcakeCircle box">
+                <div class="cupcakeInner box">
+                    <div class="cupcakeCore box"></div>
+                </div>
+            </div>
+            <span class="letter box">A</span>
+            <span class="letter box">D</span>
+            <span class="letter box">I</span>
+            <span class="letter box">N</span>
+            <span class="letter box">G</span>
+        </div>
+    </div>
+    <!-- END LOADER -->
+    <header class="header header_style_01">
+        <nav class="megamenu navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">
+                                        <span>QuantumultX Node</span>
+                                        </a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right menu-top">
+                                                <li><a href="/">首页</a></li>
+                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                <li><a href="/client.htm">客户端</a></li>
+                                                <li><a href="/news/">新闻资讯</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="all-page-title" style="background-image:url(images/pattern-4.png);">
+        <div class="container text-center">
+            <h1>mysql数据库锁MDL锁的解释_在线工具</h1>
+        </div>
+        <!--Page -->
+        <div class="page-info">
+            <div class="container">
+                <div class="inner-container">
+                    <ul class="bread-crumb">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li><span>正文</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--End Page-->
+    </div><!-- end section -->
+    <svg id="clouds" class="hidden-xs" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 85 100" preserveAspectRatio="none">
+        <path d="M-5 100 Q 0 20 5 100 Z
+            M0 100 Q 5 0 10 100
+            M5 100 Q 10 30 15 100
+            M10 100 Q 15 10 20 100
+            M15 100 Q 20 30 25 100
+            M20 100 Q 25 -10 30 100
+            M25 100 Q 30 10 35 100
+            M30 100 Q 35 30 40 100
+            M35 100 Q 40 10 45 100
+            M40 100 Q 45 50 50 100
+            M45 100 Q 50 20 55 100
+            M50 100 Q 55 40 60 100
+            M55 100 Q 60 60 65 100
+            M60 100 Q 65 50 70 100
+            M65 100 Q 70 20 75 100
+            M70 100 Q 75 45 80 100
+            M75 100 Q 80 30 85 100
+            M80 100 Q 85 20 90 100
+            M85 100 Q 90 50 95 100
+            M90 100 Q 95 25 100 100
+            M95 100 Q 100 15 105 100 Z">
+        </path>
+    </svg>
+    <div id="about" class="section wb nopadtop">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				</h1> <p>在我们系统中有一张表它的查询概率非常高。最近有个需求，需要对这个表增加一个字段，然而在增加字段的时候发现系统中有多个业务出现了超时操作，那么这个是什么原因导致的呢？经过查阅资料发现是数据库的<strong>MDL锁+事务导致</strong>的。</p> </h1> <p>MDL锁属于<strong>表级别的元数据锁</strong>。表级别锁分为数据锁和元数据锁，通常我们说的加锁一般指的是加的数据锁。跟数据锁一样，元数据锁也分读锁和读写锁。</p> <p>MDL不需要显示使用，在进行表操作时会自动加上。当对表进行增删改查时，会自动加上MDL读锁；当要对表进行加减字段的结构修改时，会自动加上MDL写锁。</p> <ul> <li>读锁不互斥，意味着可以多个线程同时对一张表进行增删改查的操作。</li> <li>写锁独占，进行结构修改前，要先等待其他所有的MDL锁释放了才能获取到MDL写锁。获取到写锁后，在写锁释放前，其他线程无法获取到MDL读锁和写锁。也就是说，修改一个表的结构过程中，会阻塞其他线程对表的操作。</li> </ul> </h1> <p>MDL锁的存在，其实是为了保证数据的一致性。想象一下，假如没有MDL锁，一个查询在遍历表数据的过程中，另外一个线程执行了<code>ALTER TABLE t DELETE COLUMN 'col_1'</code>把<code>col_1</code>这一列删掉了，那查询结果就乱了，结果中是否应该有这一列数据？</p> </h1> <p>✅ ：表示正常往下执行</p> <p>❌ ：表示卡住了，即无法往下执行。</p> <table> <thead> <tr> <th>事物一</th> <th>事物二</th> <th>事物三</th> </tr> </thead> <tbody> <tr> <td>start transaction;✅ 1️⃣</td> <td></td> <td></td> </tr> <tr> <td>select * from customer;✅2️⃣</td> <td>alter table customer add column_4 int null;❌3️⃣</td> <td></td> </tr> <tr> <td></td> <td></td> <td>select * from customer;❌4️⃣</td> </tr> <tr> <td>commit;✅5️⃣</td> <td>✅6️⃣</td> <td>✅7️⃣</td> </tr> </tbody> </table> <p><strong>解释：</strong></p> <p>步骤 1️⃣2️⃣正常执行。执行步骤2️⃣时，会申请表<code>customer</code>的<code>MDL的SHARED_READ锁</code>。</p> <p>步骤3️⃣会卡住，因为此时会申请表<code>customer</code>的<code>MDL的EXCLUSIVE锁</code>，但是事物一的事物没有提交，此时是无法申请到<code>EXCLUSIVE</code>锁，因为它们是互斥的。</p> <p>步骤4️⃣也会卡住，因为<code>EXCLUSIVE</code>锁和<code>SHARE_READ</code>锁是互斥的，且<code>EXCLUSIVE</code>锁的优先级更高，所以步骤4️⃣也会卡住。</p> <p>步骤5️⃣事物提交，释放表的<code>SHARE_READ</code>锁，之后就可以执行6️⃣和7️⃣的操作了。</p> <p>如果先执行事务二，在执行事务三，则是可以成功的，因为alter数据ddl语句，和事物无关。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-75298.htm">给动物打疫苗多少钱一次（动物注射疫苗）</a></p>
+                                        <p>下一个：<a href="/news/article-75986.htm">动物疫苗有哪些种类及作用及副作用（动物疫苗有哪些种类及作用及副作用）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-68695.htm" title="我所在的城市有一家动物医院的英语（我所在的城市有一家动物医院的英语）">我所在的城市有一家动物医院的英语（我所在的城市有一家动物医院的英语）</a></li>
+                        <li class="py-2"><a href="/news/article-64921.htm" title="动物疫苗公司10强排名 动物疫苗公司10强排名榜">动物疫苗公司10强排名 动物疫苗公司10强排名榜</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-17-quantumult-x-node.htm" title="2月17日 - 最高速度22.9M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">2月17日 - 最高速度22.9M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-55587.htm" title="动物医院的英文短语是什么（动物医院用英文怎么说）">动物医院的英文短语是什么（动物医院用英文怎么说）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-31-today-quantumult-x-node.htm" title="1月31日 - 最高速度21.6M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">1月31日 - 最高速度21.6M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-56151.htm" title="瑞鹏医院宠物医院收费价目表最新（瑞鹏宠物医院在线咨询）">瑞鹏医院宠物医院收费价目表最新（瑞鹏宠物医院在线咨询）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-17-quantumult-x-node-github.htm" title="1月17日 - 最高速度21.8M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">1月17日 - 最高速度21.8M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-63098.htm" title="如何在58同城发布宠物领养信息（58同城宠物怎么发布信息）">如何在58同城发布宠物领养信息（58同城宠物怎么发布信息）</a></li>
+                        <li class="py-2"><a href="/news/article-41758.htm" title="EFI系统分区必须挂载到/boot/efi其中之一">EFI系统分区必须挂载到/boot/efi其中之一</a></li>
+                        <li class="py-2"><a href="/news/article-59559.htm" title="上海猫咪免费领养（上海猫咪领养平台有哪些）">上海猫咪免费领养（上海猫咪领养平台有哪些）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">59</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">83</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div><!-- end container -->
+    </div><!-- end section -->
+    	    <div class="copyrights">
+        <div class="container">
+            <div class="footer-distributed">
+                <div class="footer-left">
+                    <p class="footer-company-name">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <a href="/">QuantumultX Node(圈X)官方节点站</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div><!-- end container -->
+    </div><!-- end copyrights -->
+    <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+    <!-- ALL JS FILES -->
+    <script src="/assets/website/js/frontend/quantumultxnode/all.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="/assets/website/js/frontend/quantumultxnode/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
