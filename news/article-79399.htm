@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://quantumultxnode.github.io/news/article-79399.htm" />
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>.NET 7 Preview 3添加了这些增强功能</title>
+        <meta name="description" content=".NET 7 Preview 3已发布， .NET 7 的第三个预览版包括对可观察性、启动时间、代码生成、GC Region、Native AOT 编译等方面的增强。 有兴趣的用户可以下载适用于 Wi" />
+        <link rel="icon" href="/assets/website/img/quantumultxnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="QuantumultX Node(圈X)官方节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://quantumultxnode.github.io/news/article-79399.htm" />
+    <meta property="og:site_name" content="QuantumultX Node(圈X)官方节点站" />
+    <meta property="og:title" content=".NET 7 Preview 3添加了这些增强功能" />
+    <meta property="og:image" content="https://quantumultxnode.github.io/uploads/20240726-1/f08c85c2ed6845d809c020abc97c7621.webp" />
+        <meta property="og:release_date" content="2025-03-23T08:20:41" />
+    <meta property="og:updated_time" content="2025-03-23T08:20:41" />
+        <meta property="og:description" content=".NET 7 Preview 3已发布， .NET 7 的第三个预览版包括对可观察性、启动时间、代码生成、GC Region、Native AOT 编译等方面的增强。 有兴趣的用户可以下载适用于 Wi" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content=".NET 7 Preview 3添加了这些增强功能">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/bootstrap.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/style.css">
+    <!-- Colors CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/colors.css">
+    <!-- ALL VERSION CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/versions.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/custom.css">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HT2LRJJHKV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HT2LRJJHKV');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body class="seo_version" data-page="detail">
+    <!-- LOADER -->
+    <div id="preloader">
+        <div id="cupcake" class="box">
+            <span class="letter">L</span>
+            <div class="cupcakeCircle box">
+                <div class="cupcakeInner box">
+                    <div class="cupcakeCore box"></div>
+                </div>
+            </div>
+            <span class="letter box">A</span>
+            <span class="letter box">D</span>
+            <span class="letter box">I</span>
+            <span class="letter box">N</span>
+            <span class="letter box">G</span>
+        </div>
+    </div>
+    <!-- END LOADER -->
+    <header class="header header_style_01">
+        <nav class="megamenu navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">
+                                        <span>QuantumultX Node</span>
+                                        </a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right menu-top">
+                                                <li><a href="/">首页</a></li>
+                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                <li><a href="/client.htm">客户端</a></li>
+                                                <li><a href="/news/">新闻资讯</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="all-page-title" style="background-image:url(images/pattern-4.png);">
+        <div class="container text-center">
+            <h1>.NET 7 Preview 3添加了这些增强功能</h1>
+        </div>
+        <!--Page -->
+        <div class="page-info">
+            <div class="container">
+                <div class="inner-container">
+                    <ul class="bread-crumb">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li><span>正文</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--End Page-->
+    </div><!-- end section -->
+    <svg id="clouds" class="hidden-xs" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 85 100" preserveAspectRatio="none">
+        <path d="M-5 100 Q 0 20 5 100 Z
+            M0 100 Q 5 0 10 100
+            M5 100 Q 10 30 15 100
+            M10 100 Q 15 10 20 100
+            M15 100 Q 20 30 25 100
+            M20 100 Q 25 -10 30 100
+            M25 100 Q 30 10 35 100
+            M30 100 Q 35 30 40 100
+            M35 100 Q 40 10 45 100
+            M40 100 Q 45 50 50 100
+            M45 100 Q 50 20 55 100
+            M50 100 Q 55 40 60 100
+            M55 100 Q 60 60 65 100
+            M60 100 Q 65 50 70 100
+            M65 100 Q 70 20 75 100
+            M70 100 Q 75 45 80 100
+            M75 100 Q 80 30 85 100
+            M80 100 Q 85 20 90 100
+            M85 100 Q 90 50 95 100
+            M90 100 Q 95 25 100 100
+            M95 100 Q 100 15 105 100 Z">
+        </path>
+    </svg>
+    <div id="about" class="section wb nopadtop">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>.NET 7 Preview 3<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://devblogs.microsoft.com/dotnet/announcing-dotnet-7-preview-3/"  target="_blank" rel="nofollow">已发布</a>， .NET 7 的第三个预览版包括对可观察性、启动时间、代码生成、GC Region、Native AOT 编译等方面的增强。</p> <p>有兴趣的用户可以<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://dotnet.microsoft.com/zh-cn/download/dotnet/7.0"  rel="nofollow">下载</a>适用于 Windows、macOS 和 Linux 的 .NET 7 Preview 3。Microsoft 建议使用Visual Studio 17.2 Preview 3 的<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://visualstudio.microsoft.com/vs/preview/"  rel="nofollow">预览频道版本</a>来试用 .NET 7。</p> </h1> <p>简而言之，Ahead of Time（AOT）编译可以预先构建所有内容，以避免在应用程序首次运行时需要“JIT”。很长一段时间以来，.NET 团队一直在不知疲倦地工作，为dotnet带来适当的Native pre-Time编译。虽然部分AOT一直存在，但完全的“真实”支持从未开箱即用。</p> <p>使用Native AOT，将预编译引入 .NET 桌面客户端和服务器方案<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.microsoft.com/dotnet/core/deploying/ready-to-run"  rel="nofollow">ReadyToRun</a>，以及适用于移动设备和 WASM 的 Mono AOT。根据.NET团队博客的说法，添加这一功能并不是为了取代现有技术，而是为了提供一组新的功能，允许用户访问新的外形规格。 Native AOT 的主要优势在于启动时间、内存使用、访问受限平台（不允许 JIT）以及磁盘空间更小。Preview 3 版本对 Native AOT 性能进行了优化更新，以下是最新的 Native AOT 性能（与现有的 AOT 编译 “ReadyToRun” 对比）：</p> <p><a href="https://img2022.cnblogs.com/blog/510/202204/510-20220415220327160-1505009022.png" rel="nofollow" class="fancybox" data-fancybox-group="button"><img fetchpriority="high" decoding="async" width="674" height="350" title="image" style="display: inline; background-image: none" alt="image" src="http://img.555519.xyz/uploads3/20220509/ea76f187c5303eb2050e194b593d3cf4.jpg"></a></p> <p>接下来的几个 .NET 版本将<strong>持续改进</strong>Native AOT 兼容性，且将在 dotnet SDK 中添加一流的支持（Crossgen 应用程序），以支持使用 Native AOT 发布项目。 有关原生AOT如何工作以及如何开始的更多信息，请查看<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/dotnet/runtime/blob/main/src/coreclr/nativeaot/docs/compiling.md"  rel="nofollow">官方文档</a>。</p> <pre><code><br/></code></pre> </h1> <p>此预览版还添加了对新的云原生 OpenTelemetry 规范的支持。这包括规范更新<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/open-telemetry/opentelemetry-specification/pull/988"  rel="nofollow">#988</a> 和<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/open-telemetry/opentelemetry-dotnet/issues/1708"  rel="nofollow">#1708</a>，它们使采样器的跟踪状态可变。</p> <ul> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/dotnet/runtime/pull/65530"  target="_blank" rel="nofollow">允许跟踪采样器修改活动跟踪状态</a></li> </ul> <pre><code>    //  ActivityListener Sampling callback     listener.Sample = (ref ActivityCreationOptions&lt;ActivityContext&gt; activityOptions) =&gt;     {         activityOptions = activityOptions with { TraceState = "rojo=00f067aa0ba902b7" };         return ActivitySamplingResult.AllDataAndRecorded;     };</code></pre> </h1> <p>有了这个，最新的托管扩展性框架也进行了小的更新，以便与以前版本的API保持一致。使用新的 API，可以将单个对象实例添加到<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.microsoft.com/dotnet/api/system.composition.hosting.containerconfiguration?view=dotnet-plat-ext-6.0"  rel="nofollow">System.Composition.Hosting 容器中</a>。</p> </h1> <p>性能仍然是 .NET 7 的主要关注点<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.oschina.net/action/GoToLink?url=https%3A%2F%2Fgithub.com%2Fdotnet%2Fruntime%2Fpull%2F65738"  rel="nofollow">。dotnet/runtime#65738 PR</a> ，重新实现了预代码和调用计数存根（使用分层编译帮助程序存根），可显著减少运行时中创建后再修改的可执行代码数量。</p> <p>启用该 Write-Xor-Execute 新功能可缩短 10-15% 启动时间。即使没有启用 Write-Xor-Execute，此更改也带来了一些微基准测试和一些 ASPNet 基准测试的稳态性能提高（高达 8%）。</p> </h1> <p>在 Preview 3 中，除了 MacOS 和 NativeAOT 之外的所有平台都默认启用 GC Regions功能，该功能有助于提升高吞吐量应用程序的内存利用率。</p> <p>有关 GC Regions 功能的详细信息可在该<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.oschina.net/action/GoToLink?url=https%3A%2F%2Fgithub.com%2Fdotnet%2Fruntime%2Fissues%2F43844"  rel="nofollow">Issue 中查看</a>。</p> </h1> <p>正如我们之前所讨论的，从.NET 6升级到7应该很简单，并且升级失败的可能性很小，但并非不可能。</p> <ul> <li>前往官方下载站点并<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://dotnet.microsoft.com/en-us/download/dotnet/7.0"  rel="nofollow">下载 .NET SDK。</a></li> <li>为了安全起见，还可以<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.microsoft.com/en-us/dotnet/core/compatibility/7.0"  rel="nofollow">在此处查看重大更改列表。</a></li> </ul> <p>在继续之前，请确保已备份项目，然后打开项目文件并修改目标框架属性。</p> <p><code>&lt;TargetFramework&gt;net7.0&lt;/TargetFramework&gt;</code></p> <p>在很大程度上，Microsoft 将 .NET 7 Preview 3 中包含的大量优化和错误修复归功于社区贡献者。其中包括对代码生成和实时编译所做的修复。</p> <p>有关此预览版的详细信息，请参阅<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://devblogs.microsoft.com/dotnet/announcing-dotnet-7-preview-3/"  target="_blank" rel="nofollow">.NET团队官方博客文章</a>。它还包含有关路线图项目的一些非常有趣的信息。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-79398.htm">springboot中使用restemplate，请求接口会将url参数的%编码为%25问题解决</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-43749.htm" title="宠物鲜粮市场营销策略分析报告（宠物鲜粮市场营销策略分析报告怎么写）">宠物鲜粮市场营销策略分析报告（宠物鲜粮市场营销策略分析报告怎么写）</a></li>
+                        <li class="py-2"><a href="/news/article-65550.htm" title="动物医院的英文短语是什么（动物医院用英文怎么说）">动物医院的英文短语是什么（动物医院用英文怎么说）</a></li>
+                        <li class="py-2"><a href="/news/article-49199.htm" title="南京宠物救助站救助条件（南京宠物救助领养中心）">南京宠物救助站救助条件（南京宠物救助领养中心）</a></li>
+                        <li class="py-2"><a href="/news/article-36357.htm" title="襄阳流浪狗领养地址 襄阳流浪狗领养地址在哪里">襄阳流浪狗领养地址 襄阳流浪狗领养地址在哪里</a></li>
+                        <li class="py-2"><a href="/news/article-37317.htm" title="QT下载安装和Visual Studio环境配置">QT下载安装和Visual Studio环境配置</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-13-quantumult-x-node-share.htm" title="1月13日 - 最高速度22.3M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">1月13日 - 最高速度22.3M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-71300.htm" title="宠物粮食品牌前十名排行榜有哪些呢视频讲解（宠物粮食品牌都有什么）">宠物粮食品牌前十名排行榜有哪些呢视频讲解（宠物粮食品牌都有什么）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-25-node-share.htm" title="1月25日 - 最高速度22.2M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">1月25日 - 最高速度22.2M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-41276.htm" title="动物注射给药的方法有（动物注射给药的方法有哪两种）">动物注射给药的方法有（动物注射给药的方法有哪两种）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-8-quantumult-x-node.htm" title="1月8日 - 最高速度19M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">1月8日 - 最高速度19M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">68</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">83</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div><!-- end container -->
+    </div><!-- end section -->
+    	    <div class="copyrights">
+        <div class="container">
+            <div class="footer-distributed">
+                <div class="footer-left">
+                    <p class="footer-company-name">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <a href="/">QuantumultX Node(圈X)官方节点站</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div><!-- end container -->
+    </div><!-- end copyrights -->
+    <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+    <!-- ALL JS FILES -->
+    <script src="/assets/website/js/frontend/quantumultxnode/all.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="/assets/website/js/frontend/quantumultxnode/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
