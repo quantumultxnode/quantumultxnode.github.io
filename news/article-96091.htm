@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://quantumultxnode.github.io/news/article-96091.htm" />
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>flink调优之RocksDB设置</title>
+        <meta name="description" content="一、开启监控 RocksDB是基于LSM Tree实现的，写数据都是先缓存到内存中，所以RocksDB的写请求效率比较高。RocksDB使用内存结合磁盘的方式来存储数据，每次获取数据时，先从内存中bl" />
+        <link rel="icon" href="/assets/website/img/quantumultxnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="QuantumultX Node(圈X)官方节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://quantumultxnode.github.io/news/article-96091.htm" />
+    <meta property="og:site_name" content="QuantumultX Node(圈X)官方节点站" />
+    <meta property="og:title" content="flink调优之RocksDB设置" />
+    <meta property="og:image" content="https://quantumultxnode.github.io/uploads/20240726-1/02344e61c9d60da2389a96e5ea0e0b08.webp" />
+        <meta property="og:release_date" content="2025-04-15T05:59:23" />
+    <meta property="og:updated_time" content="2025-04-15T05:59:23" />
+        <meta property="og:description" content="一、开启监控 RocksDB是基于LSM Tree实现的，写数据都是先缓存到内存中，所以RocksDB的写请求效率比较高。RocksDB使用内存结合磁盘的方式来存储数据，每次获取数据时，先从内存中bl" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="flink调优之RocksDB设置">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/bootstrap.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/style.css">
+    <!-- Colors CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/colors.css">
+    <!-- ALL VERSION CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/versions.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/website/css/quantumultxnode/custom.css">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HT2LRJJHKV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HT2LRJJHKV');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body class="seo_version" data-page="detail">
+    <!-- LOADER -->
+    <div id="preloader">
+        <div id="cupcake" class="box">
+            <span class="letter">L</span>
+            <div class="cupcakeCircle box">
+                <div class="cupcakeInner box">
+                    <div class="cupcakeCore box"></div>
+                </div>
+            </div>
+            <span class="letter box">A</span>
+            <span class="letter box">D</span>
+            <span class="letter box">I</span>
+            <span class="letter box">N</span>
+            <span class="letter box">G</span>
+        </div>
+    </div>
+    <!-- END LOADER -->
+    <header class="header header_style_01">
+        <nav class="megamenu navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">
+                                        <span>QuantumultX Node</span>
+                                        </a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right menu-top">
+                                                <li><a href="/">首页</a></li>
+                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                <li><a href="/client.htm">客户端</a></li>
+                                                <li><a href="/news/">新闻资讯</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="all-page-title" style="background-image:url(images/pattern-4.png);">
+        <div class="container text-center">
+            <h1>flink调优之RocksDB设置</h1>
+        </div>
+        <!--Page -->
+        <div class="page-info">
+            <div class="container">
+                <div class="inner-container">
+                    <ul class="bread-crumb">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li><span>正文</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--End Page-->
+    </div><!-- end section -->
+    <svg id="clouds" class="hidden-xs" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 85 100" preserveAspectRatio="none">
+        <path d="M-5 100 Q 0 20 5 100 Z
+            M0 100 Q 5 0 10 100
+            M5 100 Q 10 30 15 100
+            M10 100 Q 15 10 20 100
+            M15 100 Q 20 30 25 100
+            M20 100 Q 25 -10 30 100
+            M25 100 Q 30 10 35 100
+            M30 100 Q 35 30 40 100
+            M35 100 Q 40 10 45 100
+            M40 100 Q 45 50 50 100
+            M45 100 Q 50 20 55 100
+            M50 100 Q 55 40 60 100
+            M55 100 Q 60 60 65 100
+            M60 100 Q 65 50 70 100
+            M65 100 Q 70 20 75 100
+            M70 100 Q 75 45 80 100
+            M75 100 Q 80 30 85 100
+            M80 100 Q 85 20 90 100
+            M85 100 Q 90 50 95 100
+            M90 100 Q 95 25 100 100
+            M95 100 Q 100 15 105 100 Z">
+        </path>
+    </svg>
+    <div id="about" class="section wb nopadtop">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p><span style="font-size: 18pt"><strong><em>一、开启监控</em></strong></span></p> <p>RocksDB是基于LSM Tree实现的，写数据都是先缓存到内存中，所以RocksDB的写请求效率比较高。RocksDB使用内存结合磁盘的方式来存储数据，每次获取数据时，先从内存中blockcache中查找，如果内存中没有再去磁盘中查询。使用</p> <p>RocksDB时，状态大小仅受可用磁盘空间量的限制，性能瓶颈主要在于RocksDB对磁盘的读请求，每次读写操作都必须对数据进行<strong>反序列化或者序列化</strong>。当处理性能不够时。仅需要横向扩展并行度即可提高整个Job的吞吐量。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/a54d7fa9d56fabea338b63e100c6dfa2.jpg" alt="flink调优之RocksDB设置"></p> <p>flink1.13中引入了State访问的性能监控，即latency tracking state、此功能不局限于State Backend的类型，自定义实现的State Backend也可以复用此功能。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/9c33252177a7c30c9e855bfece0847ef.jpg" alt="flink调优之RocksDB设置"></p> <p>state访问的性能监控会产生一定的性能影响，所以默认每100次做一次抽样sample，对不同的state Backend性能损失影响不同。</p> <p>对于RocksDB State Backend，性能损失大概在1%左右</p> <p>对于heap State Backend，性能损失最多可达10%（内存本身速度比较快，一点损失影响就很大）</p> <p>关于性能监控的一些参数，正常开启第一个参数即可,</p> <p><strong>state.backend.latency-track.keyed-state-enabled:true&nbsp; &nbsp;//启用访问状态的性能监控</strong></p> <p>state.backend.latency-track.sample-interval:100&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //采样间隔</p> <p>state.backend.latency-track.histroy-size:128&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //保留的采样数据个数，越大越精确</p> <p>state.backend.latency-track.state-name-as-variable:true&nbsp; //将状态名作为变量</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/63d49a5429988c53ae32f4540a31cf44.jpg" alt="flink调优之RocksDB设置"></p> <p>&nbsp;0代表是任务编号，filter.visit-state是定义的状态的变量名</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/c9d47c0c6b9aa527ca376101553d2ff6.jpg" alt="flink调优之RocksDB设置"></p> <p>有很多这种统计值可以查看，中位值，75分位值等。</p> <p><span style="font-size: 18pt"><strong><em>二、RocksDB状态优化</em></strong></span></p> <p>①开启增量检查点：</p> <p>RocksDB是目前唯一可用于支持有状态流处理应用程序增量检查点的状态后端，可以修改参数开启增量检查点：</p> <p>state.backend.incremental:true&nbsp; //默认false，可以改为true</p> <p>或代码中指定 new EmbededRocksDBStateBackend(true)</p> <p>②开启本地恢复：当flink任务失败时，可以基于本地的状态信息进行恢复任务。可能不需要从hdfs拉取数据。本地恢复目前仅涵盖键值类型的状态后端(RocksDB)。MemoryStateBackend不支持本地恢复并忽略此选项</p> <p>state.backend.local-recovery:true</p> <p>③如果你有多块磁盘，可以考虑指定本地多目录</p> <p>state.backend.rocksdb.localdir:</p> <p>/data1/flink/rocksdb,/data2/flink/rocksdb,/data3/flink/rocksdb</p> <p>不要配置单块磁盘的多个目录，务必将目录配置到多块不同的磁盘上，让多块磁盘来分担io压力</p> <p><span style="font-size: 18pt"><em><strong>三、增量检查点优化效果案例</strong></em></span></p> <p>提交一个任务，具体参数如下</p> <p>bin/flink run \</p> <p>-t yarn-per-job \</p> <p>-d \</p> <p>-p 5 \</p> <p>-Dyarn.application.queue=test \</p> <p>-Djobmanager.memory.process.size=2048mb \</p> <p>-Dtaskmanager.memory.process.size=4096mb \</p> <p>-Dtaskmanager.numberOfTaskSlots=2 \</p> <p>-Dstate.backend.latency-track.keyed-state-enabled=true \&nbsp; &nbsp; &nbsp; //开启状态监控</p> <p>-c com.xxx.xxx.Demo \</p> <p>在flink ui查看状态的监控<img decoding="async" src="http://img.555519.xyz/uploads3/20220510/f0c5efa9b374dd2d816b64e57b2f4e79.jpg" alt="flink调优之RocksDB设置"></p> <p><em style="font-size: 18pt"><strong><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/8600c8c6055fa0ef579c3833b953f3f1.jpg" alt="flink调优之RocksDB设置"></strong></em></p> <p>&nbsp;然后重新提交任务，在提交时增加参数：</p> <p>-Dstate.backend.incremental=true&nbsp; \&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //开启增量检查点</p> <p>-Dstate.backend.local-recovery=true \&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //开启本地恢复</p> <p>代码中增加 env.setStateBackend(new EmbeddedRocksDBStateBackend())&nbsp; &nbsp;//状态后端使用RocksDB</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/15763f7f9e26e731741d3ff4da783722.jpg" alt="flink调优之RocksDB设置"></p> <p>查看两张图的checkpointed data size,可以发现，第一次任务(第一张图)checkpoint时是全量备份，所以状态是越来越大的，从1m+增加到了3m+, 而第二次任务它每次checkpoint的状态大小是有大有小的，范围在200kb-1.2m之间</p> <p>再查看End to End Duration，第一次任务的状态后端是内存存储，而时间却略大于第二次任务，说明增量的RocksDB的效果有可能好于全量的memory</p> <p><span style="font-size: 18pt"><em><strong>四、调整RockSDB的预定义选项。</strong></em></span></p> <p>预定义选项就是一个选项集合，如果调整预定义选项达不到预期，再去调整block、writebuffer等参数。</p> <p>当前支持的预定义选项有支持的选项有：</p> <p>DEFAULT</p> <p>SPINING_DISK_OPTIMIZED</p> <p>SPINNING_DISK_OPTIMIZED_HIGH_MEM</p> <p>FLASH_SSD_OPTIMIZED&nbsp; (有条件使用ssd的可以使用这个选项)</p> <p>我们一般使用第三个SPINNING_DISK_OPTIMIZED_HIGH_MEM，设置为机械硬盘+内存模式</p> <p>该模式下flink会帮我们设置一些它认为比较ok的参数(选项集合)，具体如下：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/c71434fe64bd1e51191c7eb4c016aa24.jpg" alt="flink调优之RocksDB设置"></p> <p>可以在提交任务时指定</p> <p>state.backend.rocksdb.predefined-options:SPINNING_DISK_OPTIMIZED_HIGH+MEN</p> <p>也可以在代码中指定：</p> <p>EmbededRocksDBStateBackend embededRocksDBStateBackend = new&nbsp;EmbededRocksDBStateBackend();</p> <p>EmbededRocksDBStateBackend,setPredefinedOptions(PredefinedOptions.SPINNING_DISK_OPTIMIZED_HIGH_MEM);</p> <p>env.setStateBackend(embeddedRocksDBStateBackend);</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-95349.htm">2022年国考公务员报名人数统计（国考公务员2021年报名人数）</a></p>
+                                        <p>下一个：<a href="/news/article-96092.htm">宠物食品店名称 宠物食品店名称大全</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-93069.htm" title="IDEA SpringBoot-Mybatis-plus 实现增删改查(CRUD)">IDEA SpringBoot-Mybatis-plus 实现增删改查(CRUD)</a></li>
+                        <li class="py-2"><a href="/news/article-65549.htm" title="米乐医疗科技有限公司怎么样（米乐集团是干什么的）">米乐医疗科技有限公司怎么样（米乐集团是干什么的）</a></li>
+                        <li class="py-2"><a href="/news/article-80091.htm" title="宠物领养合同属于合同法吗（宠物领养合同属于合同法吗）">宠物领养合同属于合同法吗（宠物领养合同属于合同法吗）</a></li>
+                        <li class="py-2"><a href="/news/article-95348.htm" title="Python数据结构-列表">Python数据结构-列表</a></li>
+                        <li class="py-2"><a href="/news/article-71962.htm" title="OpenCV+QT5在Window下的环境配置记录">OpenCV+QT5在Window下的环境配置记录</a></li>
+                        <li class="py-2"><a href="/news/article-93070.htm" title="宠物粮食代工厂家有哪些（宠物粮食代工厂家有哪些呢）">宠物粮食代工厂家有哪些（宠物粮食代工厂家有哪些呢）</a></li>
+                        <li class="py-2"><a href="/news/article-78018.htm" title="动物园宠物医院电话号码 动物园宠物医院电话号码查询">动物园宠物医院电话号码 动物园宠物医院电话号码查询</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-17-quantumult-x-node-share.htm" title="3月17日 - 最高速度18.2M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐">3月17日 - 最高速度18.2M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-77336.htm" title="免费领养宠物的正规平台成都（成都宠物领养公众号）">免费领养宠物的正规平台成都（成都宠物领养公众号）</a></li>
+                        <li class="py-2"><a href="/news/article-85751.htm" title="重庆免费领养小猫的地方（重庆哪里有免费领养猫）">重庆免费领养小猫的地方（重庆哪里有免费领养猫）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">47</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div><!-- end container -->
+    </div><!-- end section -->
+    	    <div class="copyrights">
+        <div class="container">
+            <div class="footer-distributed">
+                <div class="footer-left">
+                    <p class="footer-company-name">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <a href="/">QuantumultX Node(圈X)官方节点站</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div><!-- end container -->
+    </div><!-- end copyrights -->
+    <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+    <!-- ALL JS FILES -->
+    <script src="/assets/website/js/frontend/quantumultxnode/all.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="/assets/website/js/frontend/quantumultxnode/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
