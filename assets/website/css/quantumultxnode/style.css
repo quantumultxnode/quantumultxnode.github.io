@@ -2547,3 +2547,7 @@ body.seo_version .footer-links a:hover{
 #about .item {margin-bottom: 2rem;}
 #about .item h3 {font-size: 2.5rem;font-weight: bold;}
 #about .item .lead {font-size: 1.5rem;}
+
+.xcblog-blog-detail.xcblog-blog-detail-defined p {font-size: 1.5rem;line-height: 2.2rem;}
+.xcblog-blog-detail.xcblog-blog-detail-defined h2 {font-size: 2.5rem;}
+.xcblog-blog-detail.xcblog-blog-detail-defined h3 {font-size: 2.0rem;}
