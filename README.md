@@ -1,4 +1,4 @@
-# 10月24日 - 最高速度22.4M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐  更新时间 2026-10-24 00:50:58
+# 10月31日 - 最高速度19.4M/S，2025年QuantumultX(圈X)免费节点订阅链接，干净IP机场推荐  更新时间 2026-10-31 09:54:33
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://quantumultxnode.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### 免费Clash节点订阅链接
 
-- https://quantumultxnode.github.io/uploads/2026/10/0-20261024.yaml
-- https://quantumultxnode.github.io/uploads/2026/10/1-20261024.yaml
-- https://quantumultxnode.github.io/uploads/2026/10/2-20261024.yaml
-- https://quantumultxnode.github.io/uploads/2026/10/3-20261024.yaml
-- https://quantumultxnode.github.io/uploads/2026/10/4-20261024.yaml
+- https://quantumultxnode.github.io/uploads/2026/10/0-20261031.yaml
+- https://quantumultxnode.github.io/uploads/2026/10/1-20261031.yaml
+- https://quantumultxnode.github.io/uploads/2026/10/2-20261031.yaml
+- https://quantumultxnode.github.io/uploads/2026/10/3-20261031.yaml
+- https://quantumultxnode.github.io/uploads/2026/10/4-20261031.yaml
 
 ### 免费V2ray节点订阅链接
 
-- https://quantumultxnode.github.io/uploads/2026/10/0-20261024.txt
-- https://quantumultxnode.github.io/uploads/2026/10/1-20261024.txt
-- https://quantumultxnode.github.io/uploads/2026/10/2-20261024.txt
-- https://quantumultxnode.github.io/uploads/2026/10/3-20261024.txt
-- https://quantumultxnode.github.io/uploads/2026/10/4-20261024.txt
+- https://quantumultxnode.github.io/uploads/2026/10/0-20261031.txt
+- https://quantumultxnode.github.io/uploads/2026/10/1-20261031.txt
+- https://quantumultxnode.github.io/uploads/2026/10/2-20261031.txt
+- https://quantumultxnode.github.io/uploads/2026/10/3-20261031.txt
+- https://quantumultxnode.github.io/uploads/2026/10/4-20261031.txt
 
 ### 免费Sing-box节点订阅链接
 
-- https://quantumultxnode.github.io/uploads/2026/10/20261024.json
+- https://quantumultxnode.github.io/uploads/2026/10/20261031.json
 
 ## 更多Clash节点订阅 ：
 
